@@ -1,0 +1,149 @@
+# Multimedia
+ubuntu-restricted-extras,   Codecs
+gstreamer0.10-plugins-*,    Codecs
+vlc,                        Multimedia player
+
+
+# Gráficos:
+inkscape,                   Editor de gráficos vectoriales
+pinta,                      Editor de gráficos rasterizados
+gimp,                       Editor de gráficos rasterizados
+dia,                        Diagramador UML
+dia2code,                   Generador de código a partir de UML
+
+
+# Ofimática
+libreoffice,                Suite ofimática
+libreoffice-gtk3,           Soporte para Gtk3
+libreoffice-l10n-es,        Traducción al español
+libreoffice-ogltrans,       Transiciones OpenGL
+myspell-es,                 Corrección ortográfica - Español
+myspell-en-us,              Corrección ortográfica - Inglés
+
+
+# Navegadores:
+firefox,                    Navegador Web
+chromiun-browser,           Navegador Web
+flashplugin-nonfree,        Flash plugin
+
+
+# Control de versiones:
+git,                        Sistema de control de versiones distribuído
+subversion,                 Sistema de control centralizado
+rapidsvn,                   Cliente gráfico de subversion
+
+
+# Lenguajes de programación:
+
+# Java:
+openjdk-6-jdk,              Java Development Kit v6
+openjdk-7-jdk,              Java Development Kit v7
+
+# Python:
+python,                     Lenguaje de programación Python
+python-cairo,               Bindings de Cairo
+python-gtk2,                Bindings de Gtk2
+python-qt3,                 Bindings de QT3
+python-qt4,                 Bindings de QT4
+python-enchant,             Bindings de Enchant
+python-numpy,               Biblioteca numérica
+python-lxml,                Biblioteca para manipulación de XML
+python-sphinx,              Construcción automatizada de documentación
+python-pygame,              Bindings de SDL
+python-pyparsing,           Biblioteca para generación de parsers
+python-poppler,             Biblioteca para visualización de PDF
+python-pip,                 Descarga de módulos desde http://pypi.python.org/
+pep8,                       Verificador de buenas prácticas de código fuente
+
+# Python 3:
+python3,                    Lenguaje de programación Python 3
+python3-cairo,              Bindings de Cairo
+python3-gi,                 Bindings dinámicos de Gtk3
+python3-gi-cairo,           Bindings dinámicos de Cairo
+python3-pyqt4,              Bindings de QT4
+python3-enchant,            Bindings de Enchant
+python3-numpy,              Biblioteca numérica
+python3-lxml,               Biblioteca para manipulación de XML
+python3-sphinx,             Construcción automatizada de documentación
+
+
+# C:
+gcc,                        Compilador de C
+gdb,                        Debugger
+valgrind,                   Inspección de memoria de un programa
+build-essential,            Herramientas básicas de compilación
+make,                       Herramienta de construcción de GNU
+devhelp,                    Documentación para el desarrollador
+libglib2.0-dev,             Bibliotecas GLib
+libglib2.0-doc,             Documentación de GLib
+libgtk2.0-dev,              Toolkit Gtk2
+libgtk2.0-doc,              DevHelp API para Gtk2
+glade-gtk2,                 GUI Builder para Gtk2
+libgtk-3-dev,               Toolkit Gtk3
+libgtk-3-doc,               DevHelp API para Gtk3
+glade,                      GUI Builder para Gtk3
+libqt4-dev,                 Toolkit QT4
+qt4-designer,               GUI Builder para QT4
+geany,                      IDE
+
+# C++:
+g++,                        Compilador de C++
+doxygen,                    Construcción automatizada de documentación
+codeblocks,                 IDE para C++
+libboost-dev,               Bibliotecas Boost
+libboost-doc,               Documentación de las bibliotecas Boost
+libsdl1.2-dev,              Bibliotecas SDL
+#...... SDL Pending......
+
+# Erlang:
+
+# LaTeX:
+texlive,                    Distribución LaTeX completa
+texlive-latex-extra,        Paquetes extras
+texlive-publishers,         Formatos para publicaciones
+rubber,                     Entorno de compilación
+gummi,                      IDE para LaTeX
+
+
+# Redes:
+traceroute,                 Seguimiento de ruta de paquetes
+nmap,                       Scanner de puertos y herramienta de seguridad
+iptraf,                     Monitor de interfaces de red
+telnet,                     Cliente telnet
+netcat,                     Escritura TCP/UDP y exploración de red
+netcat6,                    Escritura TCP/UDP y exploración de red para IPv6
+tcpdump,                    "Dump" y análisis de tráfico
+links2,                     Cliente HTTP para terminal
+filezilla,                  Cliente FTP
+rdesktop,                   Cliente de "Terminal Server" para servidores Windows
+wireshark,                  Network "sniffer"
+openssh-client,             Cliente SSH
+openssh-server,             Servidor SSH
+gns3,                       Simulador de redes CISCO
+virtualbox,                 Virtualización de máquinas i386
+virtualbox-dkms,            Módulos dinámicos del kernel para virtualización
+minicom,                    Cliente de terminal "similar a HyperTerminal"
+
+
+# Matemática:
+gnuplot,                    Graficador de funciones
+qalculate-gtk,              Calculadora avanzada
+
+
+# Grafos:
+graphviz,                   Graficador de grafos y árboles
+graphviz-doc,               Documentación de Graphviz
+xdot,                       Visualizador de grafos creados con Graphviz
+
+
+# Compresión:
+p7zip-full,                 Compresión y descompresión de 7z, entre otros
+zip,                        Compresión ZIP
+unzip,                      Descompresión ZIP
+rar,                        Compresión RAR
+unrar,                      Descompresión RAR
+
+
+# Paquetería:
+aptitude,                   Herramienta avanzada de gestión de paquetes
+apt-file,                   Búsqueda de archivos en paquetes

@@ -1,0 +1,21 @@
+#!/bin/bash
+# Simple script to change the hostname of the machine
+
+NAME="$1"
+
+# Check for permissions errors
+if [ `id -u` != 0 ]; then
+	echo "[ERROR] Este script requiere ser ejecutado como root."
+	exit 1
+fi
+
+# Check for argument errors
+if [ -z "$NAME" ]; then
+	echo "[ERROR] Por favor escriba el nuevo nombre del sistema."
+	exit 1
+fi
+
+echo "$NAME" > /etc/hostname
+sed -i "s/pleasechangeme/$NAME/g" /etc/hosts
+
+echo "[DONE]"
