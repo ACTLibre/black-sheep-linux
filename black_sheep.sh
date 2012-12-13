@@ -1,6 +1,14 @@
 #!/bin/bash
 
 
+function desktop {
+
+    # Establecer la página de la escuela
+    apt-get remove xul-ext-ubufox
+    cp ./conf/usr/lib/firefox/defaults/preferences/all-itcr.js /usr/lib/firefox/defaults/preferences/all-itcr.js
+    cp ./conf/etc/firefox/itcr.properties /etc/firefox/itcr.properties
+}
+
 function hostname {
 
     # Cambia el hostname

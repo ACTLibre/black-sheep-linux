@@ -1,4 +1,4 @@
-# Multimedia
+# Multimedia:
 ubuntu-restricted-extras,   Codecs
 gstreamer0.10-plugins-*,    Codecs
 vlc,                        Multimedia player
@@ -12,7 +12,7 @@ dia,                        Diagramador UML
 dia2code,                   Generador de código a partir de UML
 
 
-# Ofimática
+# Ofimática:
 libreoffice,                Suite ofimática
 libreoffice-gtk3,           Soporte para Gtk3
 libreoffice-l10n-es,        Traducción al español
@@ -23,7 +23,7 @@ myspell-en-us,              Corrección ortográfica - Inglés
 
 # Navegadores:
 firefox,                    Navegador Web
-chromiun-browser,           Navegador Web
+chromium-browser,           Navegador Web
 flashplugin-nonfree,        Flash plugin
 
 
@@ -71,6 +71,7 @@ python3-sphinx,             Construcción automatizada de documentación
 gcc,                        Compilador de C
 gdb,                        Debugger
 valgrind,                   Inspección de memoria de un programa
+gcc-multilib,               Biblioteca de soporte para compilación cruzada
 build-essential,            Herramientas básicas de compilación
 make,                       Herramienta de construcción de GNU
 devhelp,                    Documentación para el desarrollador
@@ -147,3 +148,4 @@ unrar,                      Descompresión RAR
 # Paquetería:
 aptitude,                   Herramienta avanzada de gestión de paquetes
 apt-file,                   Búsqueda de archivos en paquetes
+gdebi,                      Instalación gráfica de paquetes Debian

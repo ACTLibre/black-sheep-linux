@@ -29,22 +29,27 @@ Usage:
 
 import os
 import sys
+import subprocess
 from os.path import normpath, dirname, abspath, realpath, join, exists
 
 WHERE_AM_I = normpath(dirname(abspath(realpath(__file__))))
 CSV_FILE = 'packages.csv'
 
+TEMPLATE = '''\
+
+'''
+
 if __name__ == '__main__':
 
     # Check arguments
-    if len(sys.argv) != 2 or sys.argv[1] not in ['build', 'check']:
-        print('Usage: ./package_builder.py [build|check]')
+    if len(sys.argv) != 2 or sys.argv[1] not in ['list', 'check', 'build']:
+        print('Usage: ./package_builder.py [list|check|build]')
         exit(1)
 
     # Check if CSV file exists
     CSV_FILE = join(WHERE_AM_I, CSV_FILE)
     if not exists(CSV_FILE):
-        print('File {f} not found. Exiting...'.format(f=CSV_FILE))
+        print('[ERROR] File {f} not found. Exiting...'.format(f=CSV_FILE))
         exit(1)
 
     # Read file
@@ -64,12 +69,35 @@ if __name__ == '__main__':
             package = c.split(',')[0].strip()
 
             if ' ' in package:
-                print('Malformed line: {p}'.format(p=package))
+                print('[ERROR] Malformed line: {p}'.format(p=package))
                 continue
 
             if package != '':
                 packages.append(package)
 
+    # Check that some data was read
+    if not packages:
+        print('[ERROR] No packages found on file.')
+        exit(1)
 
+    # Execute commands
+    #  List command
+    cmd = sys.argv[1]
+    if cmd == 'list':
+        print('Packages found:')
+        print(packages)
+        exit(0)
 
-    print(packages)
+    #  Check command
+    if cmd == 'check':
+        with open(os.devnull, 'w') as f:
+            for p in packages:
+                ret = subprocess.call(
+                    ['apt-cache', 'show', p], stdout=f, stderr=f)
+                if ret != 0:
+                    print('[ERROR] Package {p} not found.'.format(p=p))
+        exit(0)
+
+    #  Build command
+    print('Build command is currently unimplemented.')
+    exit(0)
