@@ -53,6 +53,7 @@ python-pygame,              Bindings de SDL
 python-pyparsing,           Biblioteca para generación de parsers
 python-poppler,             Biblioteca para visualización de PDF
 python-pip,                 Descarga de módulos desde http://pypi.python.org/
+python-gnuplot,             Interfaz Python para GNUplot
 pep8,                       Verificador de buenas prácticas de código fuente
 
 # Python 3:
