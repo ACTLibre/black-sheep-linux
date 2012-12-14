@@ -4,9 +4,9 @@
 function desktop {
 
     # Cambiar el fondo por defecto
-    # FIXME: Find image
     cp ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
     cp ./conf/usr/share/gnome-background-properties/ubuntu-wallpapers.xml /usr/share/gnome-background-properties/ubuntu-wallpapers.xml
+    gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/blacksheep.png
 
     # Establecer la página de la escuela
     apt-get remove xul-ext-ubufox
