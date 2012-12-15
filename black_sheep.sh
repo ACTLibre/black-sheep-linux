@@ -8,25 +8,56 @@ if [ `id -u` == 0 ]; then
     exit 1
 fi
 
+function environments {
+    sudo add-apt-repository ppa:gwendal-lebihan-dev/cinnamon-nightly
+    sudo apt-get update
+    sudo apt-get install cinnamon
+}
 
+function ldap {
 
-function desktop {
+    # Configurar LigthDM para ingreso vía LDAP
+    sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
+    $INSTALL ./conf/etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
+}
 
-    # Cambiar el fondo por defecto
-    $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
-    $INSTALL ./conf/usr/share/gnome-background-properties/ubuntu-wallpapers.xml /usr/share/gnome-background-properties/ubuntu-wallpapers.xml
-    gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/blacksheep.png
-    # Nota configuraciones dconf en : ~/.config/dconf/user
+function branding {
+
+    # Elimina las barras overlay de Ubuntu
+    sudo apt-get remove overlay-scrollbar*
 
     # Establecer la página de la escuela
     sudo apt-get remove xul-ext-ubufox
     $INSTALL ./conf/usr/lib/firefox/defaults/preferences/all-itcr.js /usr/lib/firefox/defaults/preferences/all-itcr.js
     $INSTALL ./conf/etc/firefox/itcr.properties /etc/firefox/itcr.properties
 
+    # Cambiar el fondo por defecto
+    $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
+            # FIXME: Add, not override
+    $INSTALL ./conf/usr/share/gnome-background-properties/ubuntu-wallpapers.xml /usr/share/gnome-background-properties/ubuntu-wallpapers.xml
+            # FIXME: PUT in override
+    gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/blacksheep.png
+    # Nota configuraciones dconf en : ~/.config/dconf/user
+
     # Cambiar fondo de LigthDM
     sudo xhost +SI:localuser:lightdm
     sudo sudo -u lightdm gsettings set com.canonical.unity-greeter draw-user-backgrounds 'false'
     sudo sudo -u lightdm gsettings set com.canonical.unity-greeter background '/usr/share/backgrounds/blacksheep.png'
+
+    # Cambiar el splash screen
+    sudo cp -R ./conf/lib/plymouth/themes/blacksheep /lib/plymouth/themes/
+    sudo update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth 100
+    sudo update-alternatives --set default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth
+    sudo update-initramfs -u
+
+    # Desactivar el bloqueo de sesión
+
+    glib-compile-schemas /usr/share/glib-2.0/schemas
+    $INSTALL ./conf/usr/share/glib-2.0/schemas/05_blacksheep_session.gschema.override /usr/share/glib-2.0/schemas/05_blacksheep_session.gschema.override
+            # FIXME: PUT in override
+    gsettings set org.gnome.desktop.screensaver idle-activation-enabled false
+            # FIXME: PUT in override
+    gsettings set org.gnome.desktop.screensaver lock-enabled false
 }
 
 function hostname {
@@ -53,3 +84,10 @@ function clean {
     # Elimina el archivo de MAC Address
     sudo rm /etc/udev/rules.d/70-persistent-net.rules
 }
+
+#packages
+#environments
+#branding
+#ldap
+#hostname
+#clean
