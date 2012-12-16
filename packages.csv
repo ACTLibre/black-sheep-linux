@@ -53,6 +53,12 @@ cvs,                        Antiguo sistema de control de versiones todavía en 
 # Web                  #
 ########################
 agave,                      Diseñador de esquemas de colores
+bluefish,                   IDE para HTML/CSS
+tidy,                       Verificador de sintaxis y reformateador HTML de la W3C
+weblint-perl,               Verificador de estilo de HTML
+yui-compressor,             Compresor de Javascript
+libjs-jquery,               Biblioteca para crear aplicaciones Javascript ricas
+geany-plugin-webhelper,     Plugin Web para Geany
 
 
 ########################
@@ -132,6 +138,7 @@ python-enchant,             Bindings de Enchant
 python-numpy,               Biblioteca numérica
 python-lxml,                Biblioteca para manipulación de XML
 python-sphinx,              Construcción automatizada de documentación
+python-webkit,              Bindis de Webkit
 python-pygame,              Bindings de SDL
 python-pyparsing,           Biblioteca para generación de parsers
 python-poppler,             Biblioteca para visualización de PDF
@@ -148,6 +155,10 @@ python3-enchant,            Bindings de Enchant
 python3-numpy,              Biblioteca numérica
 python3-lxml,               Biblioteca para manipulación de XML
 python3-sphinx,             Construcción automatizada de documentación
+# IDEs
+idle,                       IDE básico oficial de Python 2
+idle3,                      IDE básico oficial de Python 3
+drpython,                   IDE para principiantes en Python
 
 
 ########################
@@ -180,10 +191,15 @@ geany,                      IDE
 ########################
 g++,                        Compilador de C++
 doxygen,                    Construcción automatizada de documentación
-codeblocks,                 IDE para C++
-codeblocks-contrib,         Plugins para CodeBlocks
+anjuta,                     IDE para C/C++
 codelite,                   IDE para C/C++
 eclipse-cdt,                IDE para C/C++
+codeblocks,                 IDE para C++
+codeblocks-contrib,         Plugins para CodeBlocks
+libgtkmm-2.4-dev,           Biblioteca para el toolkit Gtk+2
+libgtkmm-2.4-doc,           Documentación para los bindings de Gtk+2
+libgtkmm-3.0-dev,           Biblioteca para el toolkit Gtk+3
+libgtkmm-3.0-doc,           Documentación para los bindings de Gtk+3
 libboost-dev,               Bibliotecas Boost
 libboost-doc,               Documentación de las bibliotecas Boost
 libzthread-dev,             Biblioteca de hilos orientada a objetos
@@ -210,6 +226,16 @@ libsdl-ttf2.0-0,
 libsdl-ttf2.0-dev,
 mesa-common-dev,            Bibliotecas OpenGL
 libglu1-mesa-dev,
+
+
+########################
+# C# (Mono)            #
+########################
+monodevelop,                Entorno de desarrollo para C#/Mono
+monodevelop-nunit,          Framework de pruebas automatizadas similar a JUnit
+monodevelop-versioncontrol, Soporte para Subversion
+monodevelop-database,       Soporte para bases de datos (MySQL, PostgreSQL, SQLite, MS SQL Server)
+monodevelop-vala,           Soporte para Vala (lenguaje inspirado en C#)
 
 
 ########################
@@ -307,13 +333,21 @@ arduino,                    Entorno de desarrollo para Arduino
 avrdude,                    Programador para microcontroladores AVR
 avrdude-doc,                Documentación de AVRDUDE
 fritzing,                   Entorno de desarrollo de circuitos
+# EDA/CAD
 kicad,                      Entorno de desarrollo EDA (Electronic Design Automation) profesional
 kicad-doc-es,               Documentación en Español de KiCad
 kicad-doc-en,               Documentación en Inglés de KiCad
-# Verilog
+geda,                       Entorno de desarrollo EDA (Electronic Design Automation) profesional
+geda-*,                     Documentación, ejemplos, plugins y bibliotecas de partes para GEDA
+# Verilog/HDL
 iverilog,                   Compilador de Icarus Verilog HDL
 verilator,                  Simulador de Verilog HDL
-
-
-
+# AVR
+simulavr,                   Simulador de microcontroladores AVR (ATtiny y ATmega) de Atmel
+avra,                       Ensamblador para microcontroladores AVR de Atmel
+avr-libc,                   Biblioteca de C para microcontroladores AVR de Atmel
+gcc-avr,                    Compilador de C para AVR (compilación cruzada)
+gdb-avr,                    Debugger para microcontroladores AVR de Atmel
+# Herramientas
+gresistor,                  Calculadora de resistencias eléctricas
 
