@@ -1,0 +1,22 @@
+[org.gnome.desktop.background]
+show-desktop-icons=true
+picture-uri='file:///usr/share/backgrounds/backsheep.png'
+
+[org.gnome.shell]
+favorite-apps=['firefox.desktop', 'nautilus.desktop', 'libreoffice-writer.desktop', 'geany.desktop', 'glade.desktop', 'virtualbox.desktop', 'inkscape.desktop']
+
+[org.gnome.nautilus.desktop]
+home-icon-visible=true
+computer-icon-visible=false
+trash-icon-visible=false
+volumes-visible=true
+
+[org.gnome.desktop.interface]
+clock-format='12h'
+document-font-name='DejaVu Sans 11'
+monospace-font-name='DejaVu Sans Mono 10'
+
+[org.gnome.desktop.screensaver]
+logout-delay=0
+logout-enabled=true
+logout-command='/usr/bin/gnome-session-quit --logout --no-prompt'

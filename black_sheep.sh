@@ -34,10 +34,10 @@ function branding {
     $INSTALL ./conf/usr/lib/firefox/defaults/preferences/all-itcr.js /usr/lib/firefox/defaults/preferences/all-itcr.js
     $INSTALL ./conf/etc/firefox/itcr.properties /etc/firefox/itcr.properties
 
-    # Cambiar el fondo por defecto
+    # Adaptar el escritorio
     $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
     $INSTALL ./conf/usr/share/gnome-background-properties/blacksheep-wallpapers.xml /usr/share/gnome-background-properties/blacksheep-wallpapers.xml
-    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_desktop.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_desktop.gschema.override
+    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.gschema.override
     glib-compile-schemas /usr/share/glib-2.0/schemas
 
     # Cambiar fondo de LigthDM
@@ -50,10 +50,6 @@ function branding {
     sudo update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth 100
     sudo update-alternatives --set default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth
     sudo update-initramfs -u
-
-    # Desactivar el bloqueo de sesión
-    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_session.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_session.gschema.override
-    glib-compile-schemas /usr/share/glib-2.0/schemas
 
     # Eliminar las configuraciones actuales del usuario
     rm ~/.config/dconf/user

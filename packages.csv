@@ -154,4 +154,4 @@ ttf-mscorefonts-installer,  Tipografías para compatibilidad con MS Windows
 aptitude,                   Herramienta avanzada de gestión de paquetes
 apt-file,                   Búsqueda de archivos en paquetes
 gdebi,                      Instalación gráfica de paquetes Debian
-gconf-editor,               Editor gráfico del sistema GSettings
+dconf-tools,                Editor gráfico del sistema GSettings
