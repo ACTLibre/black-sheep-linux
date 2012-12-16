@@ -145,8 +145,13 @@ unzip,                      Descompresión ZIP
 rar,                        Compresión RAR
 unrar,                      Descompresión RAR
 
+# Tipografías
+ttf-dejavu,                 Tipografías recomendadas para desarrollo
+fonts-stix,                 Tipografías para el intercambio de información técnica y científica
+ttf-mscorefonts-installer,  Tipografías para compatibilidad con MS Windows
 
 # Paquetería:
 aptitude,                   Herramienta avanzada de gestión de paquetes
 apt-file,                   Búsqueda de archivos en paquetes
 gdebi,                      Instalación gráfica de paquetes Debian
+gconf-editor,               Editor gráfico del sistema GSettings

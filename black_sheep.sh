@@ -4,7 +4,7 @@ INSTALL='sudo install --owner=root --group=root --mode=644'
 
 # Check for permissions errors
 if [ `id -u` == 0 ]; then
-    echo "[ERROR] Este script no debe ser ejecutado como root."
+    echo "[ERROR] Este script no debe ser ejecutado como root. Debe ser ejecutado como usuario sudoer."
     exit 1
 fi
 
@@ -15,6 +15,9 @@ function environments {
 }
 
 function ldap {
+
+    # Instalación de paquetes para autenticar vía LDAP
+    # FIXME
 
     # Configurar LigthDM para ingreso vía LDAP
     sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
@@ -33,11 +36,9 @@ function branding {
 
     # Cambiar el fondo por defecto
     $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
-            # FIXME: Add, not override
-    $INSTALL ./conf/usr/share/gnome-background-properties/ubuntu-wallpapers.xml /usr/share/gnome-background-properties/ubuntu-wallpapers.xml
-            # FIXME: PUT in override
-    gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/blacksheep.png
-    # Nota configuraciones dconf en : ~/.config/dconf/user
+    $INSTALL ./conf/usr/share/gnome-background-properties/blacksheep-wallpapers.xml /usr/share/gnome-background-properties/blacksheep-wallpapers.xml
+    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_desktop.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_desktop.gschema.override
+    glib-compile-schemas /usr/share/glib-2.0/schemas
 
     # Cambiar fondo de LigthDM
     sudo xhost +SI:localuser:lightdm
@@ -51,13 +52,11 @@ function branding {
     sudo update-initramfs -u
 
     # Desactivar el bloqueo de sesión
-
+    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_session.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_session.gschema.override
     glib-compile-schemas /usr/share/glib-2.0/schemas
-    $INSTALL ./conf/usr/share/glib-2.0/schemas/05_blacksheep_session.gschema.override /usr/share/glib-2.0/schemas/05_blacksheep_session.gschema.override
-            # FIXME: PUT in override
-    gsettings set org.gnome.desktop.screensaver idle-activation-enabled false
-            # FIXME: PUT in override
-    gsettings set org.gnome.desktop.screensaver lock-enabled false
+
+    # Eliminar las configuraciones actuales del usuario
+    rm ~/.config/dconf/user
 }
 
 function hostname {
