@@ -1,0 +1,3 @@
+if background_color 27,27,27; then
+  clear
+fi

@@ -1,10 +1,16 @@
-# Multimedia:
+########################
+# Multimedia           #
+########################
 ubuntu-restricted-extras,   Codecs
 gstreamer0.10-plugins-*,    Codecs
 vlc,                        Multimedia player
+cheese,                     Aplicación para webcam
+flashplugin-installer,      Soporte para Flash
 
 
-# Gráficos:
+########################
+# Gráficos             #
+########################
 inkscape,                   Editor de gráficos vectoriales
 pinta,                      Editor de gráficos rasterizados
 gimp,                       Editor de gráficos rasterizados
@@ -12,34 +18,111 @@ dia,                        Diagramador UML
 dia2code,                   Generador de código a partir de UML
 
 
-# Ofimática:
+########################
+# Ofimática            #
+########################
 libreoffice,                Suite ofimática
 libreoffice-gtk3,           Soporte para Gtk3
 libreoffice-l10n-es,        Traducción al español
 libreoffice-ogltrans,       Transiciones OpenGL
 myspell-es,                 Corrección ortográfica - Español
 myspell-en-us,              Corrección ortográfica - Inglés
+gobby-0.5,                  Editor colaborativo de documentos
 
 
-# Navegadores:
+########################
+# Navegadores          #
+########################
 firefox,                    Navegador Web
 chromium-browser,           Navegador Web
 flashplugin-nonfree,        Flash plugin
 
 
-# Control de versiones:
+########################
+# Control de versiones #
+########################
 git,                        Sistema de control de versiones distribuído
 subversion,                 Sistema de control centralizado
 rapidsvn,                   Cliente gráfico de subversion
+bzr,                        Sistema de control utilizado Canonical/Launchpad
+mercurial,                  Otro sistema de control de versiones
+cvs,                        Antiguo sistema de control de versiones todavía en uso
 
 
-# Lenguajes de programación:
+########################
+# Web                  #
+########################
+agave,                      Diseñador de esquemas de colores
 
-# Java:
+
+########################
+# Matemática           #
+########################
+gnuplot,                    Graficador de funciones
+qalculate-gtk,              Calculadora avanzada
+octave,                     Lenguaje de alto nivel para cálculos numéricos
+
+
+########################
+# Grafos               #
+########################
+graphviz,                   Graficador de grafos y árboles
+graphviz-doc,               Documentación de Graphviz
+xdot,                       Visualizador de grafos creados con Graphviz
+
+
+########################
+# Compresión           #
+########################
+p7zip-full,                 Compresión y descompresión de 7z, entre otros
+zip,                        Compresión ZIP
+unzip,                      Descompresión ZIP
+rar,                        Compresión RAR
+unrar,                      Descompresión RAR
+
+
+########################
+# Tipografías          #
+########################
+ttf-dejavu,                 Tipografías recomendadas para desarrollo
+fonts-stix,                 Tipografías para el intercambio de información técnica y científica
+ttf-mscorefonts-installer,  Tipografías para compatibilidad con MS Windows
+
+
+########################
+# Paquetería           #
+########################
+aptitude,                   Herramienta avanzada de gestión de paquetes
+apt-file,                   Búsqueda de archivos en paquetes
+gdebi,                      Instalación gráfica de paquetes Debian
+dconf-tools,                Editor gráfico del sistema GSettings
+
+
+########################
+# Herramientas         #
+########################
+bless,                      Editor exadecimal
+guake,                      Terminal drop-down
+evince,                     Visualizador de archivos PDF
+planner,                    Herramienta de administración de proyectos
+vim,                        Editor de texto plano avanzado
+
+
+########################
+# Java                 #
+########################
 openjdk-6-jdk,              Java Development Kit v6
 openjdk-7-jdk,              Java Development Kit v7
+junit,                      Framework para pruebas automatizadas
+librxtx-java,               Biblioteca para el acceso del puerto serial y paralelo en Java
+eclipse-jdt,                IDE para Java
+netbeans,                   IDE para Java
 
-# Python:
+
+########################
+# Python               #
+########################
+# Python 2
 python,                     Lenguaje de programación Python
 python-cairo,               Bindings de Cairo
 python-gtk2,                Bindings de Gtk2
@@ -55,7 +138,6 @@ python-poppler,             Biblioteca para visualización de PDF
 python-pip,                 Descarga de módulos desde http://pypi.python.org/
 python-gnuplot,             Interfaz Python para GNUplot
 pep8,                       Verificador de buenas prácticas de código fuente
-
 # Python 3:
 python3,                    Lenguaje de programación Python 3
 python3-cairo,              Bindings de Cairo
@@ -68,13 +150,17 @@ python3-lxml,               Biblioteca para manipulación de XML
 python3-sphinx,             Construcción automatizada de documentación
 
 
-# C:
+########################
+# C                    #
+########################
 gcc,                        Compilador de C
 gdb,                        Debugger
 valgrind,                   Inspección de memoria de un programa
+valkyrie,                   GUI para valgrind
 gcc-multilib,               Biblioteca de soporte para compilación cruzada
 build-essential,            Herramientas básicas de compilación
 make,                       Herramienta de construcción de GNU
+cmake,                      Herramienta de construcción multiplataforma
 devhelp,                    Documentación para el desarrollador
 libglib2.0-dev,             Bibliotecas GLib
 libglib2.0-doc,             Documentación de GLib
@@ -88,18 +174,62 @@ libqt4-dev,                 Toolkit QT4
 qt4-designer,               GUI Builder para QT4
 geany,                      IDE
 
-# C++:
+
+########################
+# C++                  #
+########################
 g++,                        Compilador de C++
 doxygen,                    Construcción automatizada de documentación
 codeblocks,                 IDE para C++
+codeblocks-contrib,         Plugins para CodeBlocks
+codelite,                   IDE para C/C++
+eclipse-cdt,                IDE para C/C++
 libboost-dev,               Bibliotecas Boost
 libboost-doc,               Documentación de las bibliotecas Boost
+libzthread-dev,             Biblioteca de hilos orientada a objetos
+libcppunit-dev,             Framework de pruebas automatizadas similar a JUnit
 libsdl1.2-dev,              Bibliotecas SDL
-#...... SDL Pending......
+libsdl-console,
+libsdl-console-dev,
+libsdl-gfx1.2-4,
+libsdl-gfx1.2-dev,
+libsdl-gfx1.2-doc,
+libsdl-image1.2,
+libsdl-image1.2-dev,
+libsdl-mixer1.2,
+libsdl-mixer1.2-dev,
+libsdl-net1.2,
+libsdl-net1.2-dev,
+libsdl-pango1,
+libsdl-pango-dev,
+libsdl-sge,
+libsdl-sge-dev,
+libsdl-sound1.2,
+libsdl-sound1.2-dev,
+libsdl-ttf2.0-0,
+libsdl-ttf2.0-dev,
+mesa-common-dev,            Bibliotecas OpenGL
+libglu1-mesa-dev,
 
-# Erlang:
 
-# LaTeX:
+########################
+# Erlang               #
+########################
+erlang,                     Lenguaje de programación distribuído
+erlang-doc,                 Documentación de Erlang
+erlang-manpages,            Manuales de comandos de Erlang
+
+
+########################
+# Ensamblador          #
+########################
+nasm,                       Ensamblador de x86 de uso general
+libasm-dev,                 Biblioteca para crear ejecutables ELF a bajo nivel
+
+
+########################
+# LaTeX                #
+########################
 texlive,                    Distribución LaTeX completa
 texlive-latex-extra,        Paquetes extras
 texlive-publishers,         Formatos para publicaciones
@@ -107,7 +237,9 @@ rubber,                     Entorno de compilación
 gummi,                      IDE para LaTeX
 
 
-# Redes:
+########################
+# Redes                #
+########################
 traceroute,                 Seguimiento de ruta de paquetes
 nmap,                       Scanner de puertos y herramienta de seguridad
 iptraf,                     Monitor de interfaces de red
@@ -125,33 +257,63 @@ gns3,                       Simulador de redes CISCO
 virtualbox,                 Virtualización de máquinas i386
 virtualbox-dkms,            Módulos dinámicos del kernel para virtualización
 minicom,                    Cliente de terminal "similar a HyperTerminal"
+wget,                       Gestor de descargas para terminal
+curl,                       Intercambio de datos entre servidores
+libpcap-dev,                Biblioteca para la captura de paquetes
+python-scapy,               Herramienta de manipulación, generación y análisis de paquetes
 
 
-# Matemática:
-gnuplot,                    Graficador de funciones
-qalculate-gtk,              Calculadora avanzada
+########################
+# Bases de datos       #
+########################
+# MySQL
+mysql-workbench,            Diseñador de bases de datos para MySQL
+mysql-client,               Cliente para MySQL
+libmysqlcppconn-dev,        Biblioteca para conexión con MySQL para C++
+# SQLite
+sqlitebrowser,              Navegador gráfico de bases de datos SQLite
+sqliteman,                  Completa herramienta gráfica de gestión de bases de datos SQLite
+sqlite,                     Interfaz de línea de comandos para SQLite 2
+sqlite-doc,                 Documentación de SQLite 2
+python-sqlite,              Interfaz Python para SQLite 2
+sqlite3,                    Interfaz de línea de comandos para SQLite 3
+sqlite3-doc,                Documentación de SQLite 3
+python-pysqlite2,           Interfaz Python para SQLite 3
+python-pysqlite2-doc,       Documentación de la interfaz Python para SQLite 3
+libsqlite0,                 Biblioteca compartida de SQLite 2
+libsqlite0-dev,             Archivos de desarrollo de SQLite 2
+libsqlite3-0,               Biblioteca compartida de SQLite 3
+libsqlite3-dev,             Archivos de desarrollo de SQLite 3
+# PostGreSQL
+postgresql-client,          Cliente de PostGreSQL
+# Algebra relacional
+relational,                 Herramienta educativa gráfica para la enseñanza de álgebra relacional
+relational-cli,             Herramienta educativa de línea de comandos para la enseñanza de álgebra relacional
 
 
-# Grafos:
-graphviz,                   Graficador de grafos y árboles
-graphviz-doc,               Documentación de Graphviz
-xdot,                       Visualizador de grafos creados con Graphviz
+########################
+# Sistemas operativos  #
+########################
+linux-source,               Código fuente del kernel Linux
+#linux-headers-`uname -r`,  Headers del kernel Linux
 
 
-# Compresión:
-p7zip-full,                 Compresión y descompresión de 7z, entre otros
-zip,                        Compresión ZIP
-unzip,                      Descompresión ZIP
-rar,                        Compresión RAR
-unrar,                      Descompresión RAR
+########################
+# Electrónica          #
+########################
+# Arduino
+dfu-programmer,             Programador DFU para el microcontrolador 8U2 del Arduino Uno
+arduino,                    Entorno de desarrollo para Arduino
+avrdude,                    Programador para microcontroladores AVR
+avrdude-doc,                Documentación de AVRDUDE
+fritzing,                   Entorno de desarrollo de circuitos
+kicad,                      Entorno de desarrollo EDA (Electronic Design Automation) profesional
+kicad-doc-es,               Documentación en Español de KiCad
+kicad-doc-en,               Documentación en Inglés de KiCad
+# Verilog
+iverilog,                   Compilador de Icarus Verilog HDL
+verilator,                  Simulador de Verilog HDL
 
-# Tipografías
-ttf-dejavu,                 Tipografías recomendadas para desarrollo
-fonts-stix,                 Tipografías para el intercambio de información técnica y científica
-ttf-mscorefonts-installer,  Tipografías para compatibilidad con MS Windows
 
-# Paquetería:
-aptitude,                   Herramienta avanzada de gestión de paquetes
-apt-file,                   Búsqueda de archivos en paquetes
-gdebi,                      Instalación gráfica de paquetes Debian
-dconf-tools,                Editor gráfico del sistema GSettings
+
+
