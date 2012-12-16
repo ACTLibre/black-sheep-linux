@@ -90,12 +90,16 @@ if __name__ == '__main__':
 
     #  Check command
     if cmd == 'check':
+        errors = False
         with open(os.devnull, 'w') as f:
             for p in packages:
                 ret = subprocess.call(
                     ['apt-cache', 'show', p], stdout=f, stderr=f)
                 if ret != 0:
+                    errors = True
                     print('[ERROR] Package {p} not found.'.format(p=p))
+        if errors:
+            exit(1)
         exit(0)
 
     #  Build command

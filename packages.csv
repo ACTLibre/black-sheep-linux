@@ -19,6 +19,14 @@ dia2code,                   Generador de código a partir de UML
 
 
 ########################
+# Comunicación         #
+########################
+pidgin,                     Cliente de comunicación multiprotocolo
+skype,                      Cliente VoIP
+google-talkplugin,          Plugin para Google Talk
+
+
+########################
 # Ofimática            #
 ########################
 libreoffice,                Suite ofimática
@@ -42,6 +50,7 @@ flashplugin-nonfree,        Flash plugin
 # Control de versiones #
 ########################
 git,                        Sistema de control de versiones distribuído
+giggle,                     Interfaz gráfica para exploración de repositorios Git
 subversion,                 Sistema de control centralizado
 rapidsvn,                   Cliente gráfico de subversion
 bzr,                        Sistema de control utilizado Canonical/Launchpad
@@ -102,6 +111,7 @@ aptitude,                   Herramienta avanzada de gestión de paquetes
 apt-file,                   Búsqueda de archivos en paquetes
 gdebi,                      Instalación gráfica de paquetes Debian
 dconf-tools,                Editor gráfico del sistema GSettings
+devscripts,                 Herramientas de construcción de paquetes Debian
 
 
 ########################

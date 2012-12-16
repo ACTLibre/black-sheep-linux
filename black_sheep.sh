@@ -8,9 +8,48 @@ if [ `id -u` == 0 ]; then
     exit 1
 fi
 
-function environments {
+function depends {
+    # Dependencias para ejecutar este script
+    sudo apt-get install devscripts gdebi
+}
+
+function repos {
+    # Skype
+    sudo sh -c 'echo "deb http://archive.canonical.com/ $(lsb_release -sc) partner" >> /etc/apt/sources.list.d/skype.list'
+
+    # VirtualBox
+    wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+    sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+
+    # Google Talk Plugin
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+
+    # Gummi
+    sudo add-apt-repository ppa:gummi/gummi
+
+    # Cinnamon
     sudo add-apt-repository ppa:gwendal-lebihan-dev/cinnamon-nightly
+
     sudo apt-get update
+}
+
+function packages {
+    # Instalar todos los paquetes de Black Sheep
+    ./package_builder build
+    sudo gdebi --n `./package_builder version`
+
+    # Instalar aplicaciones al inicio
+    $INSTALL ./conf/etc/xdg/autostart/*.desktop /etc/xdg/autostart/
+}
+
+function updates {
+    # Desactiva actualizaciones
+    sudo apt-get remove update-notifier
+    $INSTALL ./conf/etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic
+}
+
+function environments {
     sudo apt-get install cinnamon
 }
 
