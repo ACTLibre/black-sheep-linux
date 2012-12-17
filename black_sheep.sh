@@ -66,7 +66,7 @@ function repos {
 function branding {
 
     # Instala tipografía del sistema
-    sudo apt-get install ttf-dejavu
+    sudo apt-get --yes install ttf-dejavu
 
     # Elimina las barras overlay de Ubuntu
     sudo apt-get --yes remove overlay-scrollbar*

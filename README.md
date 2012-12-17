@@ -8,7 +8,7 @@ Instituto Tecnológico de Costa Rica.
 ![Black Sheep Logo](https://raw.github.com/carlos-jenkins/black-sheep-linux/master/images/logo_small.png "Black Sheep Logo")
 
 
-Como usar
+Cómo usar
 =========
 
 Descargar el repositorio:

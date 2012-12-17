@@ -29,31 +29,25 @@ Usage:
 
 import os
 import sys
+import shutil
 import subprocess
-from os.path import normpath, dirname, abspath, realpath, join, exists
+from email.Utils import formatdate
+from os.path import normpath, dirname, abspath, realpath, join, exists, isfile, isdir
 
 ###################
 # Edit if required
-VERSION='1.0a'
-REVISION='1'
+VERSION='1.0b'
 ###################
 
 WHERE_AM_I = normpath(dirname(abspath(realpath(__file__))))
 CSV_FILE = 'packages.csv'
-FILE = 'blacksheep_{v}-{r}_all.deb'.format(v=VERSION, r=REVISION)
 
 if __name__ == '__main__':
 
     # Check arguments
-    if len(sys.argv) != 2 or sys.argv[1] not in ['list', 'check', 'build', 'version']:
-        print('Usage: ./package_builder.py [list|check|version|build]')
+    if len(sys.argv) != 2 or sys.argv[1] not in ['list', 'check', 'build']:
+        print('Usage: ./package_builder.py [list|check|build]')
         exit(1)
-
-    # List filename if requested
-    cmd = sys.argv[1]
-    if cmd == 'version':
-        print(FILE)
-        exit(0)
 
     # Check if CSV file exists
     CSV_FILE = join(WHERE_AM_I, CSV_FILE)
@@ -63,7 +57,7 @@ if __name__ == '__main__':
 
     # Read file
     packages = []
-    with open(CSV_FILE) as handler:
+    with open(CSV_FILE, 'r') as handler:
         lines = handler.readlines()
 
         # Remove commented lines and empty lines
@@ -90,6 +84,7 @@ if __name__ == '__main__':
         exit(1)
 
     # Execute commands
+    cmd = sys.argv[1]
     #  List command
     if cmd == 'list':
         print('Packages found:')
@@ -112,5 +107,70 @@ if __name__ == '__main__':
         exit(0)
 
     #  Build command
-    print('Build command is currently unimplemented.')
+    #   Create build folder
+    build_folder = join(WHERE_AM_I, 'build', 'black-sheep_{v}'.format(v=VERSION))
+    if exists(build_folder):
+        shutil.rmtree(build_folder)
+    os.makedirs(build_folder)
+
+    #   Copy Debian package structure
+    debian_folder = join(build_folder, 'debian')
+    shutil.copytree(join(WHERE_AM_I, 'debian'), debian_folder)
+
+    #   Change Debian control file
+    lines = []
+    line = []
+    size = 26
+    for p in packages:
+        size += len(p) + 2
+        if size <= 79:
+            line.append(p)
+        else:
+            lines.append(', '.join(line))
+            size = 1
+            line = []
+    if line:
+        lines.append(', '.join(line))
+    packages_string = ',\n '.join(lines)
+
+    content = ''
+    debian_control = join(debian_folder, 'control')
+    with open(debian_control, 'r') as handler:
+        content = handler.read()
+        content = content.replace('[BLACK-SHEEP-DEPENDS]', packages_string)
+    if not content:
+        print('[ERROR] Error reading debian control file.')
+
+    with open(debian_control, 'w') as handler:
+        handler.write(content)
+
+    # Change Debian changelog
+    # TODO
+    content = ''
+    debian_changelog = join(debian_folder, 'changelog')
+    with open(debian_changelog, 'r') as handler:
+        content = handler.read()
+
+    if not 'black-sheep ({v})'.format(v=VERSION) in content:
+
+        now = formatdate(localtime=1)
+        distro = subprocess.Popen(
+                        ['lsb_release', '-sc'],
+                        stdout=subprocess.PIPE).communicate()[0].strip()
+
+        new_entry = (\
+            "black-sheep ({v}) {d}; urgency=low\n"
+            "\n"
+            "  * Updated Black Sheep to version {v}.\n"
+            "\n"
+            " -- Carlos Jenkins <carlos@jenkins.co.cr>  {n}")
+        new_entry = new_entry.format(
+                            v=VERSION,
+                            d=distro,
+                            n=now
+                        ) + '\n\n' + content
+
+        with open(debian_changelog, 'w') as handler:
+            handler.write(new_entry)
+
     exit(0)

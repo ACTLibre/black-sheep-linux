@@ -1,7 +1,7 @@
 Source: black-sheep
 Section: metapackages
 Priority: optional
-Maintainer: Carlos Miguel Jenkins Pérez <carlos@jenkins.co.cr>
+Maintainer: Carlos Jenkins <carlos@jenkins.co.cr>
 Standards-Version: 3.9.3
 Homepage: http://www.ic-itcr.ac.cr/
 Vcs-Browser: https://github.com/carlos-jenkins/black-sheep-linux
@@ -9,9 +9,9 @@ Vcs-Git: git://github.com/carlos-jenkins/black-sheep-linux.git
 Build-Depends: debhelper (>= 8)
 
 Package: black-sheep
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}, [BLACK-SHEEP-DEPENDS]
 Description: Black Sheep Linux metapackage.
- Black Sheep Linux es un pequeño script que adapta una distribución estándar 
- de Ubuntu a las necesidades de la carrera de Ingeniería en Computación del 
+ Black Sheep Linux es un pequeño script que adapta una distribución estándar
+ de Ubuntu a las necesidades de la carrera de Ingeniería en Computación del
  Instituto Tecnológico de Costa Rica.
