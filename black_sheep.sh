@@ -176,7 +176,7 @@ function clean {
 function help {
 
     # Imprime la lista de funciones disponibles
-    cat $0 | grep "() {" | sed 's/() {//'   #Ignore this
+    cat $0 | grep "function " | sed 's/ {//' | sed 's/function //'  #Ignore this
 }
 
 
@@ -214,7 +214,6 @@ manual)
 
     # Manually insert the name of the function or execute it.
     if [ "$2" == "" ]; then
-        print_header
         echo "Insert the name of a function: (CTRL-C to exit)"
         echo "Type \"help\" for a list of available functions."
         read
