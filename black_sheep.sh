@@ -55,10 +55,10 @@ function repos {
     sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/dropbox.list'
 
     # Gummi
-    sudo add-apt-repository ppa:gummi/gummi
+    sudo add-apt-repository --yes ppa:gummi/gummi
 
     # Cinnamon
-    sudo add-apt-repository ppa:gwendal-lebihan-dev/cinnamon-nightly
+    sudo add-apt-repository --yes ppa:gwendal-lebihan-dev/cinnamon-nightly
 
     sudo apt-get update
 }
@@ -212,7 +212,7 @@ config)
 manual)
     echo "WARNING this mode can perform unsafe actions."
 
-    # Manually insert the name of the function or execute it.
+    # Manually insert the name of the function_ or execute it.
     if [ "$2" == "" ]; then
         echo "Insert the name of a function: (CTRL-C to exit)"
         echo "Type \"help\" for a list of available functions."
