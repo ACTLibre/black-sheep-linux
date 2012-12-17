@@ -34,7 +34,7 @@ fi
 function depends {
 
     # Dependencias para ejecutar este script
-    sudo apt-get install devscripts gdebi
+    sudo apt-get --yes install devscripts gdebi
 }
 
 function repos {
@@ -66,10 +66,10 @@ function repos {
 function branding {
 
     # Elimina las barras overlay de Ubuntu
-    sudo apt-get remove overlay-scrollbar*
+    sudo apt-get --yes remove overlay-scrollbar*
 
     # Establecer la página de la escuela como página inicial
-    sudo apt-get remove xul-ext-ubufox
+    sudo apt-get --yes remove xul-ext-ubufox
     $INSTALL ./conf/usr/lib/firefox/defaults/preferences/all-itcr.js /usr/lib/firefox/defaults/preferences/all-itcr.js
     $INSTALL ./conf/etc/firefox/itcr.properties /etc/firefox/itcr.properties
 
@@ -123,13 +123,13 @@ function apps {
 
 function environments {
 
-    sudo apt-get install cinnamon
+    sudo apt-get --yes install cinnamon
 }
 
 function updates {
 
     # Desactiva actualizaciones
-    sudo apt-get remove update-notifier
+    sudo apt-get --yes remove update-notifier
     $INSTALL ./conf/etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic
 }
 
