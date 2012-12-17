@@ -36,7 +36,7 @@ from os.path import normpath, dirname, abspath, realpath, join, exists, isfile, 
 
 ###################
 # Edit if required
-VERSION='1.0b'
+VERSION = '1.0b'
 ###################
 
 WHERE_AM_I = normpath(dirname(abspath(realpath(__file__))))
@@ -79,6 +79,7 @@ if __name__ == '__main__':
                 packages.append(package)
 
     # Check that some data was read
+    packages = sorted(set(packages))
     if not packages:
         print('[ERROR] No packages found on file.')
         exit(1)
@@ -120,15 +121,15 @@ if __name__ == '__main__':
     #   Change Debian control file
     lines = []
     line = []
-    size = 26
+    size = 27
     for p in packages:
         size += len(p) + 2
         if size <= 79:
             line.append(p)
         else:
             lines.append(', '.join(line))
-            size = 1
-            line = []
+            size = 1 + len(p)
+            line = [p]
     if line:
         lines.append(', '.join(line))
     packages_string = ',\n '.join(lines)
@@ -144,8 +145,7 @@ if __name__ == '__main__':
     with open(debian_control, 'w') as handler:
         handler.write(content)
 
-    # Change Debian changelog
-    # TODO
+    #   Change Debian changelog
     content = ''
     debian_changelog = join(debian_folder, 'changelog')
     with open(debian_changelog, 'r') as handler:
@@ -173,4 +173,15 @@ if __name__ == '__main__':
         with open(debian_changelog, 'w') as handler:
             handler.write(new_entry)
 
+    #   Build Debian package
+    os.chdir(build_folder)
+    ret = subprocess.call(['debuild', '-us', '-uc'])
+    os.chdir(WHERE_AM_I)
+
+    if ret !=0:
+        print('[ERROR] Error building the Debian package.')
+        exit(ret)
+
+    deb = join(WHERE_AM_I, 'build', 'black-sheep_{v}_all.deb'.format(v=VERSION))
+    print('[DONE] Debian package created at {f}'.format(f=deb))
     exit(0)

@@ -2,7 +2,9 @@
 # Multimedia           #
 ########################
 ubuntu-restricted-extras,   Codecs
-gstreamer0.10-plugins-*,    Codecs
+gstreamer0.10-plugins-bad,  Codecs
+gstreamer0.10-plugins-ugly, Codecs
+gstreamer0.10-plugins-good, Codecs
 vlc,                        Multimedia player
 cheese,                     Aplicación para webcam
 flashplugin-installer,      Soporte para Flash
@@ -349,7 +351,11 @@ kicad,                      Entorno de desarrollo EDA (Electronic Design Automat
 kicad-doc-es,               Documentación en Español de KiCad
 kicad-doc-en,               Documentación en Inglés de KiCad
 geda,                       Entorno de desarrollo EDA (Electronic Design Automation) profesional
-geda-*,                     Documentación, ejemplos, plugins y bibliotecas de partes para GEDA
+geda-examples,              Utilidades, ejemplos y bibliotecas de partes para GEDA
+geda-gattrib,
+geda-gsymcheck,
+geda-symbols,
+geda-utils,
 # Verilog/HDL
 iverilog,                   Compilador de Icarus Verilog HDL
 verilator,                  Simulador de Verilog HDL
