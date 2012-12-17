@@ -108,6 +108,7 @@ if __name__ == '__main__':
                     print('[ERROR] Package {p} not found.'.format(p=p))
         if errors:
             exit(1)
+        print('[DONE] All packages found.')
         exit(0)
 
     #  Build command
