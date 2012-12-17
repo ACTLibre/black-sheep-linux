@@ -193,10 +193,20 @@ check)
 
 install)
     # Instala la meta-distribución
-    repos
     depends
+    repos
     branding
     #packages
+    #apps
+;;
+
+config)
+    # Configura la estación
+    updates
+    hostname
+    #nfs
+    #ldap
+    #clean
 ;;
 
 manual)
@@ -217,7 +227,7 @@ manual)
 ;;
 
 *)
-    echo "Usage: `basename $0` [check|install|manual]"
+    echo "Usage: `basename $0` [check|install|config|manual]"
     exit 1
 ;;
 
