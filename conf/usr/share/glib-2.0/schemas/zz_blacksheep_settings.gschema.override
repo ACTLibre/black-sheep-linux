@@ -13,9 +13,9 @@ trash-icon-visible=false
 volumes-visible=true
 
 [org.gnome.desktop.interface]
-clock-format='12h'
 document-font-name='DejaVu Sans 11'
 monospace-font-name='DejaVu Sans Mono 10'
+clock-format='12h'
 
 [org.gnome.desktop.screensaver]
 logout-delay=0
@@ -28,3 +28,9 @@ background-color='#5D5D5D'
 draw-user-backgrounds=false
 logo=''
 play-ready-sound=false
+
+[com.canonical.indicator.datetime]
+time-format='12-hour'
+show-date=true
+show-day=true
+

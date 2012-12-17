@@ -65,6 +65,9 @@ function repos {
 
 function branding {
 
+    # Instala tipografía del sistema
+    sudo apt-get install ttf-dejavu
+
     # Elimina las barras overlay de Ubuntu
     sudo apt-get --yes remove overlay-scrollbar*
 
@@ -76,13 +79,9 @@ function branding {
     # Adaptar el escritorio
     $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
     $INSTALL ./conf/usr/share/gnome-background-properties/blacksheep-wallpapers.xml /usr/share/gnome-background-properties/blacksheep-wallpapers.xml
-    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.gschema.override
+    $INSTALL ./conf/usr/share/glib-2.0/schemas/zz_blacksheep_settings.gschema.override /usr/share/glib-2.0/schemas/zz_blacksheep_settings.gschema.override
+    sudo fc-cache -fv
     sudo glib-compile-schemas /usr/share/glib-2.0/schemas
-
-    # Cambiar fondo de LigthDM
-    #sudo xhost +SI:localuser:lightdm
-    #sudo sudo -u lightdm gsettings set com.canonical.unity-greeter draw-user-backgrounds 'false'
-    #sudo sudo -u lightdm gsettings set com.canonical.unity-greeter background '/usr/share/backgrounds/blacksheep.png'
 
     # Cambiar el splash screen
     sudo cp -R ./conf/lib/plymouth/themes/blacksheep /lib/plymouth/themes/
