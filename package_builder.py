@@ -24,7 +24,7 @@ It can also check if the current distribution still has those packages.
 
 Usage:
 
-    ./package_builder.py [build|check]
+    ./package_builder.py [list|check|version|build]
 """
 
 import os
@@ -32,19 +32,28 @@ import sys
 import subprocess
 from os.path import normpath, dirname, abspath, realpath, join, exists
 
+###################
+# Edit if required
+VERSION='1.0a'
+REVISION='1'
+###################
+
 WHERE_AM_I = normpath(dirname(abspath(realpath(__file__))))
 CSV_FILE = 'packages.csv'
-
-TEMPLATE = '''\
-
-'''
+FILE = 'blacksheep_{v}-{r}_all.deb'.format(v=VERSION, r=REVISION)
 
 if __name__ == '__main__':
 
     # Check arguments
-    if len(sys.argv) != 2 or sys.argv[1] not in ['list', 'check', 'build']:
-        print('Usage: ./package_builder.py [list|check|build]')
+    if len(sys.argv) != 2 or sys.argv[1] not in ['list', 'check', 'build', 'version']:
+        print('Usage: ./package_builder.py [list|check|version|build]')
         exit(1)
+
+    # List filename if requested
+    cmd = sys.argv[1]
+    if cmd == 'version':
+        print(FILE)
+        exit(0)
 
     # Check if CSV file exists
     CSV_FILE = join(WHERE_AM_I, CSV_FILE)
@@ -82,7 +91,6 @@ if __name__ == '__main__':
 
     # Execute commands
     #  List command
-    cmd = sys.argv[1]
     if cmd == 'list':
         print('Packages found:')
         print(packages)
