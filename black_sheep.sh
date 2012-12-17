@@ -25,6 +25,10 @@ function repos {
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 
+    # Dropbox
+    sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+    sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" >> /etc/apt/sources.list.d/dropbox.list'
+
     # Gummi
     sudo add-apt-repository ppa:gummi/gummi
 

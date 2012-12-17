@@ -122,6 +122,7 @@ guake,                      Terminal drop-down
 evince,                     Visualizador de archivos PDF
 planner,                    Herramienta de administración de proyectos
 vim,                        Editor de texto plano avanzado
+nautilus-dropbox,           Sincronización de archivos en la nube
 
 
 ########################
