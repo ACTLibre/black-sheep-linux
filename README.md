@@ -14,10 +14,9 @@ Como usar
 Descargar el repositorio:
 
 ```shell
-mkdir blacksheep
-cd blacksheep
 sudo apt-get install git
 git clone git://github.com/carlos-jenkins/black-sheep-linux.git
+cd black-sheep-linux
 ```
 
 Verificar la disponibilidad de los paquetes:
