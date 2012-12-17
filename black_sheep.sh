@@ -77,7 +77,7 @@ function branding {
     $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
     $INSTALL ./conf/usr/share/gnome-background-properties/blacksheep-wallpapers.xml /usr/share/gnome-background-properties/blacksheep-wallpapers.xml
     $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.gschema.override
-    glib-compile-schemas /usr/share/glib-2.0/schemas
+    sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 
     # Cambiar fondo de LigthDM
     #sudo xhost +SI:localuser:lightdm
@@ -92,7 +92,7 @@ function branding {
     sudo update-grub
 
     # Eliminar las configuraciones actuales del usuario
-    rm ~/.config/dconf/user
+    rm -f ~/.config/dconf/user
 }
 
 function packages {
