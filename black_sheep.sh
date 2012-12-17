@@ -28,15 +28,17 @@ fi
 
 
 ##########################
-# Functions              #
+# Meta-distribution      #
 ##########################
 
 function depends {
+
     # Dependencias para ejecutar este script
     sudo apt-get install devscripts gdebi
 }
 
 function repos {
+
     # Skype
     sudo sh -c 'echo "deb http://archive.canonical.com/ $(lsb_release -sc) partner" > /etc/apt/sources.list.d/skype.list'
 
@@ -93,13 +95,8 @@ function branding {
     rm ~/.config/dconf/user
 }
 
-function updates {
-    # Desactiva actualizaciones
-    sudo apt-get remove update-notifier
-    $INSTALL ./conf/etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic
-}
-
 function packages {
+
     # Instalar todos los paquetes de Black Sheep
     ./package_builder build
     sudo gdebi --n `./package_builder version`
@@ -108,18 +105,32 @@ function packages {
     $INSTALL ./conf/etc/xdg/autostart/*.desktop /etc/xdg/autostart/
 }
 
+function apps {
+
+    # Ejecutar instalador adicionales
+    cd ./apps/
+    for app in `find . -executable -type f`; do
+        echo "Running: $app"
+        ./$app
+    done
+    cd ../
+}
+
+
+##########################
+# Station configuration  #
+##########################
+
 function environments {
+
     sudo apt-get install cinnamon
 }
 
-function ldap {
+function updates {
 
-    # Instalación de paquetes para autenticar vía LDAP
-    # FIXME
-
-    # Configurar LigthDM para ingreso vía LDAP
-    sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
-    $INSTALL ./conf/etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
+    # Desactiva actualizaciones
+    sudo apt-get remove update-notifier
+    $INSTALL ./conf/etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic
 }
 
 function hostname {
@@ -138,6 +149,21 @@ function hostname {
     # /sbin/changehostname cic01
 }
 
+function nfs {
+
+    echo "TODO: Implement nfs()"
+}
+
+function ldap {
+
+    # Instalación de paquetes para autenticar vía LDAP
+    # FIXME
+
+    # Configurar LigthDM para ingreso vía LDAP
+    sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
+    $INSTALL ./conf/etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
+}
+
 function clean {
 
     # Elimina el cache de paquetes
@@ -148,6 +174,7 @@ function clean {
 }
 
 function help {
+
     # Imprime la lista de funciones disponibles
     cat $0 | grep "() {" | sed 's/() {//'   #Ignore this
 }
