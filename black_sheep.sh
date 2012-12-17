@@ -1,12 +1,35 @@
 #!/bin/bash
 
+##########################
+# Variables              #
+##########################
+
 INSTALL='sudo install --owner=root --group=root --mode=644'
+
+
+##########################
+# Check permissions      #
+##########################
 
 # Check for permissions errors
 if [ `id -u` == 0 ]; then
-    echo "[ERROR] Este script no debe ser ejecutado como root. Debe ser ejecutado como usuario sudoer."
+    echo "[ERROR] This script should not be executed as root. Run it a a sudo-capable user."
     exit 1
 fi
+
+#Check if user can do sudo
+echo "This application needs root privileges."
+if [ `sudo id -u` != 0 ]; then
+    echo "This user cannot cast sudo or you typed an incorrect password (several times)."
+    exit 1
+else
+    echo "Correctly authenticated."
+fi
+
+
+##########################
+# Functions              #
+##########################
 
 function depends {
     # Dependencias para ejecutar este script
@@ -15,19 +38,19 @@ function depends {
 
 function repos {
     # Skype
-    sudo sh -c 'echo "deb http://archive.canonical.com/ $(lsb_release -sc) partner" >> /etc/apt/sources.list.d/skype.list'
+    sudo sh -c 'echo "deb http://archive.canonical.com/ $(lsb_release -sc) partner" > /etc/apt/sources.list.d/skype.list'
 
     # VirtualBox
     wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
-    sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+    sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" > /etc/apt/sources.list.d/virtualbox.list'
 
     # Google Talk Plugin
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 
     # Dropbox
     sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
-    sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" >> /etc/apt/sources.list.d/dropbox.list'
+    sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/dropbox.list'
 
     # Gummi
     sudo add-apt-repository ppa:gummi/gummi
@@ -38,6 +61,44 @@ function repos {
     sudo apt-get update
 }
 
+function branding {
+
+    # Elimina las barras overlay de Ubuntu
+    sudo apt-get remove overlay-scrollbar*
+
+    # Establecer la página de la escuela como página inicial
+    sudo apt-get remove xul-ext-ubufox
+    $INSTALL ./conf/usr/lib/firefox/defaults/preferences/all-itcr.js /usr/lib/firefox/defaults/preferences/all-itcr.js
+    $INSTALL ./conf/etc/firefox/itcr.properties /etc/firefox/itcr.properties
+
+    # Adaptar el escritorio
+    $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
+    $INSTALL ./conf/usr/share/gnome-background-properties/blacksheep-wallpapers.xml /usr/share/gnome-background-properties/blacksheep-wallpapers.xml
+    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.gschema.override
+    glib-compile-schemas /usr/share/glib-2.0/schemas
+
+    # Cambiar fondo de LigthDM
+    #sudo xhost +SI:localuser:lightdm
+    #sudo sudo -u lightdm gsettings set com.canonical.unity-greeter draw-user-backgrounds 'false'
+    #sudo sudo -u lightdm gsettings set com.canonical.unity-greeter background '/usr/share/backgrounds/blacksheep.png'
+
+    # Cambiar el splash screen
+    sudo cp -R ./conf/lib/plymouth/themes/blacksheep /lib/plymouth/themes/
+    sudo update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth 100
+    sudo update-alternatives --set default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth
+    sudo update-initramfs -u
+    sudo update-grub
+
+    # Eliminar las configuraciones actuales del usuario
+    rm ~/.config/dconf/user
+}
+
+function updates {
+    # Desactiva actualizaciones
+    sudo apt-get remove update-notifier
+    $INSTALL ./conf/etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic
+}
+
 function packages {
     # Instalar todos los paquetes de Black Sheep
     ./package_builder build
@@ -45,12 +106,6 @@ function packages {
 
     # Instalar aplicaciones al inicio
     $INSTALL ./conf/etc/xdg/autostart/*.desktop /etc/xdg/autostart/
-}
-
-function updates {
-    # Desactiva actualizaciones
-    sudo apt-get remove update-notifier
-    $INSTALL ./conf/etc/apt/apt.conf.d/10periodic /etc/apt/apt.conf.d/10periodic
 }
 
 function environments {
@@ -65,37 +120,6 @@ function ldap {
     # Configurar LigthDM para ingreso vía LDAP
     sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
     $INSTALL ./conf/etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
-}
-
-function branding {
-
-    # Elimina las barras overlay de Ubuntu
-    sudo apt-get remove overlay-scrollbar*
-
-    # Establecer la página de la escuela
-    sudo apt-get remove xul-ext-ubufox
-    $INSTALL ./conf/usr/lib/firefox/defaults/preferences/all-itcr.js /usr/lib/firefox/defaults/preferences/all-itcr.js
-    $INSTALL ./conf/etc/firefox/itcr.properties /etc/firefox/itcr.properties
-
-    # Adaptar el escritorio
-    $INSTALL ./conf/usr/share/backgrounds/blacksheep.png /usr/share/backgrounds/blacksheep.png
-    $INSTALL ./conf/usr/share/gnome-background-properties/blacksheep-wallpapers.xml /usr/share/gnome-background-properties/blacksheep-wallpapers.xml
-    $INSTALL ./conf/usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.override /usr/share/glib-2.0/schemas/20_blacksheep_settings.gschema.gschema.override
-    glib-compile-schemas /usr/share/glib-2.0/schemas
-
-    # Cambiar fondo de LigthDM
-    sudo xhost +SI:localuser:lightdm
-    sudo sudo -u lightdm gsettings set com.canonical.unity-greeter draw-user-backgrounds 'false'
-    sudo sudo -u lightdm gsettings set com.canonical.unity-greeter background '/usr/share/backgrounds/blacksheep.png'
-
-    # Cambiar el splash screen
-    sudo cp -R ./conf/lib/plymouth/themes/blacksheep /lib/plymouth/themes/
-    sudo update-alternatives --install /lib/plymouth/themes/default.plymouth default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth 100
-    sudo update-alternatives --set default.plymouth /lib/plymouth/themes/blacksheep/blacksheep.plymouth
-    sudo update-initramfs -u
-
-    # Eliminar las configuraciones actuales del usuario
-    rm ~/.config/dconf/user
 }
 
 function hostname {
@@ -123,9 +147,51 @@ function clean {
     sudo rm /etc/udev/rules.d/70-persistent-net.rules
 }
 
-#packages
-#environments
-#branding
-#ldap
-#hostname
-#clean
+function help {
+    # Imprime la lista de funciones disponibles
+    cat $0 | grep "() {" | sed 's/() {//'   #Ignore this
+}
+
+
+##########################
+# Arguments handling     #
+##########################
+
+case "$1" in
+check)
+    # Verifica la disponibilidad de los paquetes
+    repos
+    ./package_builder.py check
+;;
+
+install)
+    # Instala la meta-distribución
+    repos
+    depends
+    branding
+    #packages
+;;
+
+manual)
+    echo "WARNING this mode can perform unsafe actions."
+
+    # Manually insert the name of the function or execute it.
+    if [ "$2" == "" ]; then
+        print_header
+        echo "Insert the name of a function: (CTRL-C to exit)"
+        echo "Type \"help\" for a list of available functions."
+        read
+        $REPLY
+        echo "[DONE]"
+    else
+        $2
+        echo "[DONE]"
+    fi
+;;
+
+*)
+    echo "Usage: `basename $0` [check|install|manual]"
+    exit 1
+;;
+
+esac

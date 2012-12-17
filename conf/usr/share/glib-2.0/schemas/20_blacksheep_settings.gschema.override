@@ -20,3 +20,10 @@ monospace-font-name='DejaVu Sans Mono 10'
 logout-delay=0
 logout-enabled=true
 logout-command='/usr/bin/gnome-session-quit --logout --no-prompt'
+
+[canonical.unity-greeter]
+background='/usr/share/backgrounds/blacksheep.png'
+background-color='#5D5D5D'
+draw-user-backgrounds=false
+logo=''
+play-ready-sound=false
