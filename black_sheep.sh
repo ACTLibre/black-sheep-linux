@@ -39,6 +39,10 @@ function depends {
 
 function repos {
 
+    # Erlang
+    wget -q http://binaries.erlang-solutions.com/debian/erlang_solutions.asc -O- | sudo apt-key add -
+    sudo sh -c 'echo "deb http://binaries.erlang-solutions.com/debian $(lsb_release -sc) contrib" > /etc/apt/sources.list.d/erlang.list'
+
     # Skype
     sudo sh -c 'echo "deb http://archive.canonical.com/ $(lsb_release -sc) partner" > /etc/apt/sources.list.d/skype.list'
 
@@ -59,6 +63,9 @@ function repos {
 
     # Cinnamon
     sudo add-apt-repository --yes ppa:gwendal-lebihan-dev/cinnamon-nightly
+
+    # Gimp
+    sudo add-apt-repository --yes ppa:otto-kesselgulasch/gimp
 
     sudo apt-get update
 }
@@ -90,7 +97,12 @@ function branding {
     sudo update-initramfs -u
     sudo update-grub
 
+    # Configurar GIMP para ventana única
+    $INSTALL ./conf/etc/gimp/2.0/sessionrc /etc/gimp/2.0/sessionrc
+
     # Eliminar las configuraciones actuales del usuario
+    mkdir -p ~/.pre-bs
+    cp ~/.config/dconf/user ~/.pre-bs/
     rm -f ~/.config/dconf/user
 }
 
@@ -98,7 +110,7 @@ function packages {
 
     # Instalar todos los paquetes de Black Sheep
     ./package_builder build
-    sudo gdebi --n `./package_builder version`
+    sudo gdebi --n `find build/ -name *.deb | head -n 1`
 
     # Instalar aplicaciones al inicio
     $INSTALL ./conf/etc/xdg/autostart/*.desktop /etc/xdg/autostart/

@@ -16,6 +16,7 @@ flashplugin-installer,      Soporte para Flash
 inkscape,                   Editor de gráficos vectoriales
 pinta,                      Editor de gráficos rasterizados
 gimp,                       Editor de gráficos rasterizados
+gimp-plugin-registry,       Extensiones de GIMP
 dia,                        Diagramador UML
 dia2code,                   Generador de código a partir de UML
 
@@ -36,7 +37,7 @@ libreoffice-gtk3,           Soporte para Gtk3
 libreoffice-l10n-es,        Traducción al español
 libreoffice-ogltrans,       Transiciones OpenGL
 myspell-es,                 Corrección ortográfica - Español
-myspell-en-us,              Corrección ortográfica - Inglés
+hunspell-en-us,             Corrección ortográfica - Inglés
 gobby-0.5,                  Editor colaborativo de documentos
 
 
@@ -125,6 +126,7 @@ evince,                     Visualizador de archivos PDF
 planner,                    Herramienta de administración de proyectos
 vim,                        Editor de texto plano avanzado
 nautilus-dropbox,           Sincronización de archivos en la nube
+alacarte,                   Editor del menú de usuario
 
 
 ########################
@@ -254,9 +256,12 @@ monodevelop-vala,           Soporte para Vala (lenguaje inspirado en C#)
 ########################
 # Erlang               #
 ########################
-erlang,                     Lenguaje de programación distribuído
-erlang-doc,                 Documentación de Erlang
-erlang-manpages,            Manuales de comandos de Erlang
+# Versiones antiguas de Erlang disponibles en repos oficiales
+#erlang,                     Lenguaje de programación distribuído
+#erlang-doc,                 Documentación de Erlang
+#erlang-manpages,            Manuales de comandos de Erlang
+# Versión actualizada desde repo oficial
+esl-erlang,                 Lenguaje de programación distribuído
 
 
 ########################
