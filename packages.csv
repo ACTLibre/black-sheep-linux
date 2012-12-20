@@ -127,6 +127,10 @@ planner,                    Herramienta de administración de proyectos
 vim,                        Editor de texto plano avanzado
 nautilus-dropbox,           Sincronización de archivos en la nube
 alacarte,                   Editor del menú de usuario
+transmission,               Cliente P2P
+phatch,                     Editor y procesador gráfico de imágenes en lote
+imagemagick,                Herramienta para crear y editar imágenes
+libmagickcore4-extra,       Soporte para imagemagick de formatos adicional
 
 
 ########################
@@ -177,9 +181,17 @@ drpython,                   IDE para principiantes en Python
 
 
 ########################
+# Ensamblador          #
+########################
+nasm,                       Ensamblador de x86 de uso general
+libasm-dev,                 Biblioteca para crear ejecutables ELF a bajo nivel
+
+
+########################
 # C                    #
 ########################
 gcc,                        Compilador de C
+libc6-dev,                  Biblioteca de C
 gdb,                        Debugger
 valgrind,                   Inspección de memoria de un programa
 valkyrie,                   GUI para valgrind
@@ -215,7 +227,7 @@ libgtkmm-2.4-dev,           Biblioteca para el toolkit Gtk+2
 libgtkmm-2.4-doc,           Documentación para los bindings de Gtk+2
 libgtkmm-3.0-dev,           Biblioteca para el toolkit Gtk+3
 libgtkmm-3.0-doc,           Documentación para los bindings de Gtk+3
-libboost-dev,               Bibliotecas Boost
+libboost-all-dev,           Bibliotecas Boost
 libboost-doc,               Documentación de las bibliotecas Boost
 libzthread-dev,             Biblioteca de hilos orientada a objetos
 libcppunit-dev,             Framework de pruebas automatizadas similar a JUnit
@@ -265,10 +277,39 @@ esl-erlang,                 Lenguaje de programación distribuído
 
 
 ########################
-# Ensamblador          #
+# Prolog               #
 ########################
-nasm,                       Ensamblador de x86 de uso general
-libasm-dev,                 Biblioteca para crear ejecutables ELF a bajo nivel
+swi-prolog,                 Compilador y entorno avanzado de Prolog
+swi-prolog-doc,             Documentación de SWI-Prolog
+swi-prolog-odbc,            Conector ODBC para Prolog
+
+
+########################
+# Haskell              #
+########################
+# FIXME
+
+
+########################
+# OCaml                #
+########################
+ocaml,
+ocaml-doc,
+ocaml-book-en,
+ocaml-batteries-included,
+
+
+########################
+# Scheme/Racket        #
+########################
+racket,                     Lenguaje de programación de la familia de Scheme (antiguo PLT Scheme)
+racket-doc,                 Documentación de Racket
+
+
+########################
+# Smalltalk            #
+########################
+#squeak-image3.9,           ???????? What with Squeak :S
 
 
 ########################
@@ -297,6 +338,9 @@ rdesktop,                   Cliente de "Terminal Server" para servidores Windows
 wireshark,                  Network "sniffer"
 openssh-client,             Cliente SSH
 openssh-server,             Servidor SSH
+putty,                      Cliente gráfico SSH, telnet, entre otros
+putty-doc,                  Documentación de Putty
+putty-tools,                Herramientas adicionales para Putty
 gns3,                       Simulador de redes CISCO
 virtualbox,                 Virtualización de máquinas i386
 virtualbox-dkms,            Módulos dinámicos del kernel para virtualización
@@ -330,6 +374,7 @@ libsqlite3-0,               Biblioteca compartida de SQLite 3
 libsqlite3-dev,             Archivos de desarrollo de SQLite 3
 # PostGreSQL
 postgresql-client,          Cliente de PostGreSQL
+pgadmin3,                   Herramienta para la administración gráfica de PostgreSQL
 # Algebra relacional
 relational,                 Herramienta educativa gráfica para la enseñanza de álgebra relacional
 relational-cli,             Herramienta educativa de línea de comandos para la enseñanza de álgebra relacional
@@ -340,6 +385,11 @@ relational-cli,             Herramienta educativa de línea de comandos para la 
 ########################
 linux-source,               Código fuente del kernel Linux
 #linux-headers-`uname -r`,  Headers del kernel Linux
+
+
+########################
+# Electrónica          #
+########################
 
 
 ########################
