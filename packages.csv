@@ -25,6 +25,7 @@ dia2code,                   Generador de código a partir de UML
 # Comunicación         #
 ########################
 pidgin,                     Cliente de comunicación multiprotocolo
+pidgin-otr,					Plugin para comunicación cifrada
 skype,                      Cliente VoIP
 google-talkplugin,          Plugin para Google Talk
 
@@ -111,6 +112,7 @@ ttf-mscorefonts-installer,  Tipografías para compatibilidad con MS Windows
 # Paquetería           #
 ########################
 aptitude,                   Herramienta avanzada de gestión de paquetes
+synaptic,					Herramienta gráfica avanzada de gestión de paquetes
 apt-file,                   Búsqueda de archivos en paquetes
 gdebi,                      Instalación gráfica de paquetes Debian
 dconf-tools,                Editor gráfico del sistema GSettings

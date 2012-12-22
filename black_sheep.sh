@@ -98,6 +98,7 @@ function branding {
     sudo update-grub
 
     # Configurar GIMP para ventana única
+    mkdir -p /etc/gimp/2.0/
     $INSTALL ./conf/etc/gimp/2.0/sessionrc /etc/gimp/2.0/sessionrc
 
     # Eliminar las configuraciones actuales del usuario
