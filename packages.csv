@@ -7,7 +7,6 @@ gstreamer0.10-plugins-ugly, Codecs
 gstreamer0.10-plugins-good, Codecs
 vlc,                        Multimedia player
 cheese,                     Aplicación para webcam
-flashplugin-installer,      Soporte para Flash
 
 
 ########################
@@ -25,7 +24,7 @@ dia2code,                   Generador de código a partir de UML
 # Comunicación         #
 ########################
 pidgin,                     Cliente de comunicación multiprotocolo
-pidgin-otr,					Plugin para comunicación cifrada
+pidgin-otr,                 Plugin para comunicación cifrada
 skype,                      Cliente VoIP
 google-talkplugin,          Plugin para Google Talk
 
@@ -47,7 +46,7 @@ gobby-0.5,                  Editor colaborativo de documentos
 ########################
 firefox,                    Navegador Web
 chromium-browser,           Navegador Web
-flashplugin-nonfree,        Flash plugin
+flashplugin-installer,      Soporte para Flash
 
 
 ########################
@@ -112,7 +111,7 @@ ttf-mscorefonts-installer,  Tipografías para compatibilidad con MS Windows
 # Paquetería           #
 ########################
 aptitude,                   Herramienta avanzada de gestión de paquetes
-synaptic,					Herramienta gráfica avanzada de gestión de paquetes
+synaptic,                   Herramienta gráfica avanzada de gestión de paquetes
 apt-file,                   Búsqueda de archivos en paquetes
 gdebi,                      Instalación gráfica de paquetes Debian
 dconf-tools,                Editor gráfico del sistema GSettings
@@ -140,7 +139,10 @@ libmagickcore4-extra,       Soporte para imagemagick de formatos adicional
 ########################
 openjdk-6-jdk,              Java Development Kit v6
 openjdk-7-jdk,              Java Development Kit v7
-junit,                      Framework para pruebas automatizadas
+junit,                      Framework para pruebas automatizadas (v3.8)
+junit-doc,                  Documentación de Junit v3.8
+junit4,                     Framework para pruebas automatizadas (v4.8)
+junit4-doc,                 Documentación de Junit v4.8
 librxtx-java,               Biblioteca para el acceso del puerto serial y paralelo en Java
 eclipse-jdt,                IDE para Java
 netbeans,                   IDE para Java
@@ -153,6 +155,7 @@ netbeans,                   IDE para Java
 python,                     Lenguaje de programación Python
 python-cairo,               Bindings de Cairo
 python-gtk2,                Bindings de Gtk2
+python-gtk2-doc,            Documentación de los bindings de Gtk2
 python-qt3,                 Bindings de QT3
 python-qt4,                 Bindings de QT4
 python-enchant,             Bindings de Enchant
@@ -387,11 +390,6 @@ relational-cli,             Herramienta educativa de línea de comandos para la 
 ########################
 linux-source,               Código fuente del kernel Linux
 #linux-headers-`uname -r`,  Headers del kernel Linux
-
-
-########################
-# Electrónica          #
-########################
 
 
 ########################
