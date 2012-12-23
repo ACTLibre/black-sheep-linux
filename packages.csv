@@ -36,6 +36,7 @@ libreoffice,                Suite ofimática
 libreoffice-gtk3,           Soporte para Gtk3
 libreoffice-l10n-es,        Traducción al español
 libreoffice-ogltrans,       Transiciones OpenGL
+ooo-thumbnailer,            Previsualización de archivos ODF
 myspell-es,                 Corrección ortográfica - Español
 hunspell-en-us,             Corrección ortográfica - Inglés
 gobby-0.5,                  Editor colaborativo de documentos
@@ -47,6 +48,7 @@ gobby-0.5,                  Editor colaborativo de documentos
 firefox,                    Navegador Web
 chromium-browser,           Navegador Web
 flashplugin-installer,      Soporte para Flash
+icedtea-6-plugin,           Soporte para Applets
 
 
 ########################
@@ -132,6 +134,7 @@ transmission,               Cliente P2P
 phatch,                     Editor y procesador gráfico de imágenes en lote
 imagemagick,                Herramienta para crear y editar imágenes
 libmagickcore4-extra,       Soporte para imagemagick de formatos adicional
+gparted,                    Herramienta de gestión de particiones
 
 
 ########################
