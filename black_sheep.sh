@@ -116,6 +116,7 @@ function packages {
     # Copiar cache de paquetes Debian en caso de existir
     if [ -d ./cache/ ]; then
         sudo cp -f ./cache/*.deb /var/cache/apt/archives/
+        sudo apt-get update
     fi
 
     # Instalar todos los paquetes de Black Sheep
