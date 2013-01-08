@@ -34,7 +34,7 @@ fi
 function depends {
 
     # Dependencias para ejecutar este script
-    sudo apt-get --yes install devscripts gdebi
+    sudo apt-get --yes install devscripts debhelper gdebi
 }
 
 function repos {
@@ -115,7 +115,7 @@ function packages {
 
     # Copiar cache de paquetes Debian en caso de existir
     if [ -d ./cache/ ]; then
-        sudo cp ./cache/*.deb /var/cache/apt/archives/
+        sudo cp -f ./cache/*.deb /var/cache/apt/archives/
     fi
 
     # Instalar todos los paquetes de Black Sheep
