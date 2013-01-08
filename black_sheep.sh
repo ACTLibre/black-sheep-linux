@@ -219,9 +219,9 @@ install)
     # Instala la meta-distribución
     depends
     repos
-    branding
     packages
     apps
+    branding
 ;;
 
 config)

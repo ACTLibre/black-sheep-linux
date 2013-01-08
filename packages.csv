@@ -16,8 +16,9 @@ inkscape,                   Editor de gráficos vectoriales
 pinta,                      Editor de gráficos rasterizados
 gimp,                       Editor de gráficos rasterizados
 gimp-plugin-registry,       Extensiones de GIMP
-dia,                        Diagramador UML
+dia,                        Diagramas varios
 dia2code,                   Generador de código a partir de UML
+gaphor,                     Diagramas UML
 
 
 ########################
@@ -220,6 +221,13 @@ glade,                      GUI Builder para Gtk3
 libqt4-dev,                 Toolkit QT4
 qt4-designer,               GUI Builder para QT4
 geany,                      IDE
+# Bibliotecas varias
+libcurl4-openssl-dev,       Biblioteca de desarrollo de OpenSSL
+libcdio-dev,                Biblioteca para el control de CDROM a bajo nivel
+libasound2-dev,             Biblioteca de desarrollo de Alsa
+libopenal-dev,              Biblioteca de desarrollo de OpenAL (Audio Library)
+libncurses5-dev,            Biblioteca de desarrollo de ncurses (UI en terminal)
+libxml2-dev,                Biblioteca de desarrollo XML de Gnome
 
 
 ########################
@@ -426,4 +434,20 @@ gcc-avr,                    Compilador de C para AVR (compilación cruzada)
 gdb-avr,                    Debugger para microcontroladores AVR de Atmel
 # Herramientas
 gresistor,                  Calculadora de resistencias eléctricas
+
+
+########################
+# Juegos               #
+########################
+warzone2100,                Juego de estrategia
+warzone2100-music,          Música de Warzone
+armagetronad,               Motocicletas de luz tipo Tron
+frozen-bubble,              Juego tipo tetris
+warmux,                     Juego de guerra tipo Worms
+neverball,                  Juego de balance 3D
+neverputt,                  Juego de Mini-Golf 3D
+nexuiz,                     FPS (en el futuro debería ser reemplazado por Xonotic)
+openarena,                  FPS rápido tipo Quake Arena
+supertux,                   Juego de plataformas tipo Super Mario
+supertuxkart,               Juego de go-karts tipo Mario Karts
 
