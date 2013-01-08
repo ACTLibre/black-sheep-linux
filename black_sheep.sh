@@ -109,6 +109,11 @@ function branding {
 
 function packages {
 
+    # Copiar cache de paquetes Debian en caso de existir
+    if [ -d ./cache/ ]; then
+        sudo cp /cache/*.deb /var/cache/apt/archives/
+    fi
+
     # Instalar todos los paquetes de Black Sheep
     ./package_builder build
     sudo gdebi --n `find build/ -name *.deb | head -n 1`
@@ -211,8 +216,8 @@ install)
     depends
     repos
     branding
-    #packages
-    #apps
+    packages
+    apps
 ;;
 
 config)
