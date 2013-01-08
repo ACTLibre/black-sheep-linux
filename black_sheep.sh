@@ -51,7 +51,11 @@ function repos {
     sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" > /etc/apt/sources.list.d/virtualbox.list'
 
     # Google Talk Plugin
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    if [ -f  ./cache/linux_signing_key.pub ]; then
+        sudo apt-key add ./cache/linux_signing_key.pub
+    else
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    fi
     sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" > /etc/apt/sources.list.d/google-talkplugin.list'
 
     # Dropbox
@@ -111,11 +115,11 @@ function packages {
 
     # Copiar cache de paquetes Debian en caso de existir
     if [ -d ./cache/ ]; then
-        sudo cp /cache/*.deb /var/cache/apt/archives/
+        sudo cp ./cache/*.deb /var/cache/apt/archives/
     fi
 
     # Instalar todos los paquetes de Black Sheep
-    ./package_builder build
+    ./package_builder.py build
     sudo gdebi --n `find build/ -name *.deb | head -n 1`
 
     # Actualiza el cache de archivos de archivos
