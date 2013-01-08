@@ -52,7 +52,7 @@ function repos {
 
     # Google Talk Plugin
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" > /etc/apt/sources.list.d/google.list'
+    sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" > /etc/apt/sources.list.d/google-talkplugin.list'
 
     # Dropbox
     sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
@@ -112,6 +112,9 @@ function packages {
     # Instalar todos los paquetes de Black Sheep
     ./package_builder build
     sudo gdebi --n `find build/ -name *.deb | head -n 1`
+
+    # Actualiza el cache de archivos de archivos
+    sudo apt-file update
 
     # Instalar aplicaciones al inicio
     $INSTALL ./conf/etc/xdg/autostart/*.desktop /etc/xdg/autostart/

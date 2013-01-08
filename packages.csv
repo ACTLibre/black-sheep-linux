@@ -135,6 +135,7 @@ phatch,                     Editor y procesador gráfico de imágenes en lote
 imagemagick,                Herramienta para crear y editar imágenes
 libmagickcore4-extra,       Soporte para imagemagick de formatos adicional
 gparted,                    Herramienta de gestión de particiones
+keepassx,                   Gestor de claves seguras
 
 
 ########################

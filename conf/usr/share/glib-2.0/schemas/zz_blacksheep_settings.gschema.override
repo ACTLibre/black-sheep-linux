@@ -34,3 +34,5 @@ time-format='12-hour'
 show-date=true
 show-day=true
 
+[org.gnome.shell.clock]
+show-date=true
