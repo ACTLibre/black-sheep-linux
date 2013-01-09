@@ -17,7 +17,7 @@ if [ `id -u` == 0 ]; then
     exit 1
 fi
 
-#Check if user can do sudo
+# Check if user can do sudo
 echo "This application needs root privileges."
 if [ `sudo id -u` != 0 ]; then
     echo "This user cannot cast sudo or you typed an incorrect password (several times)."
@@ -51,15 +51,19 @@ function repos {
     sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" > /etc/apt/sources.list.d/virtualbox.list'
 
     # Google Talk Plugin
-    if [ -f  ./cache/linux_signing_key.pub ]; then
-        sudo apt-key add ./cache/linux_signing_key.pub
+    if [ -f  ./cache/google.asc ]; then
+        sudo apt-key add ./cache/google.asc
     else
         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     fi
     sudo sh -c 'echo "deb http://dl.google.com/linux/talkplugin/deb/ stable main" > /etc/apt/sources.list.d/google-talkplugin.list'
 
     # Dropbox
-    sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+    if [ -f  ./cache/dropbox.asc ]; then
+        sudo apt-key add ./cache/dropbox.asc
+    else
+        sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+    fi
     sudo sh -c 'echo "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/dropbox.list'
 
     # Gummi

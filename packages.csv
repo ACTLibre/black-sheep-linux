@@ -304,7 +304,8 @@ swi-prolog-odbc,            Conector ODBC para Prolog
 ########################
 # Haskell              #
 ########################
-# FIXME
+ghc,                        Sistema de compilacion Glasgow Haskell
+ghc-doc,                    Documentacion de GHC
 
 
 ########################
@@ -326,7 +327,9 @@ racket-doc,                 Documentación de Racket
 ########################
 # Smalltalk            #
 ########################
-#squeak-image3.9,           ???????? What with Squeak :S
+squeak-image3.9,            Imagen de Squeak Smalltalk
+#squeak-sources3.9,          Codigo fuente de la imagen de Squeak
+#squeak-vm,                  Maquina virtual de Squeak Smalltalk
 
 
 ########################
@@ -453,3 +456,5 @@ openarena,                  FPS rápido tipo Quake Arena
 supertux,                   Juego de plataformas tipo Super Mario
 supertuxkart,               Juego de go-karts tipo Mario Karts
 extremetuxracer,            Juego de pinguino deslizandose colina abajo
+
+
