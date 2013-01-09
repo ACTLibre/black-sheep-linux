@@ -97,6 +97,8 @@ if __name__ == '__main__':
         errors = False
         with open(os.devnull, 'w') as f:
             for p in packages:
+                # Debug
+                #print('Analizing package {}...'.format(p))
                 ret = subprocess.call(
                     ['apt-cache', 'show', p], stdout=f, stderr=f)
                 if ret != 0:
