@@ -36,7 +36,7 @@ from os.path import normpath, dirname, abspath, realpath, join, exists, isfile, 
 
 ###################
 # Edit if required
-VERSION = '1.0b'
+VERSION = '1.0c'
 ###################
 
 WHERE_AM_I = normpath(dirname(abspath(realpath(__file__))))

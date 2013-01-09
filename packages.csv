@@ -458,3 +458,13 @@ supertuxkart,               Juego de go-karts tipo Mario Karts
 extremetuxracer,            Juego de pinguino deslizandose colina abajo
 
 
+########################
+# Entornos de escrit.  #
+########################
+gnome-shell,                Gnome Shell
+cinnamon,                   Cinnamon
+kde-full,                   KDE
+xfce4,                      XFCE
+lxde,                       LXDE
+e17,                        Enlightenment
+

@@ -70,7 +70,7 @@ function repos {
     sudo add-apt-repository --yes ppa:gummi/gummi
 
     # Cinnamon
-    sudo add-apt-repository --yes ppa:gwendal-lebihan-dev/cinnamon-nightly
+    sudo add-apt-repository --yes ppa:gwendal-lebihan-dev/cinnamon-stable
 
     # Gimp
     sudo add-apt-repository --yes ppa:otto-kesselgulasch/gimp

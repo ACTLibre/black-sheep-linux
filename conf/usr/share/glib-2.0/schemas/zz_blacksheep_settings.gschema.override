@@ -36,3 +36,14 @@ show-day=true
 
 [org.gnome.shell.clock]
 show-date=true
+
+[org.gnome.gedit.preferences.editor]
+auto-indent=true
+bracket-matching=true
+create-backup-copy=false
+display-line-numbers=true
+display-right-margin=true
+highlight-current-line=true
+insert-spaces=true
+scheme=oblivion
+tabs-size=4
