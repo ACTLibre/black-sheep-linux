@@ -361,6 +361,8 @@ putty-tools,                Herramientas adicionales para Putty
 gns3,                       Simulador de redes CISCO
 virtualbox,                 Virtualización de máquinas i386
 virtualbox-dkms,            Módulos dinámicos del kernel para virtualización
+virtualbox-guest-additions-iso, Imagen de disco de guest additions para VirtualBox
+virtualbox-fuse,            Módulo para FUSE que permite montar imágenes VDI de VirtualBox
 minicom,                    Cliente de terminal "similar a HyperTerminal"
 wget,                       Gestor de descargas para terminal
 curl,                       Intercambio de datos entre servidores
