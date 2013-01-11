@@ -186,7 +186,16 @@ function nfs {
 function ldap {
 
     # Instalación de paquetes para autenticar vía LDAP
-    # FIXME
+    #  (Responder que se desea mantener la versión instalada)
+    $INSTALL ./conf/etc/ldap/ldap.conf /etc/ldap/ldap.conf
+    sudo apt-get install libpam-ldapd
+
+    # Instalación de archivos de configuración
+    sudo cp /etc/nslcd.conf /etc/nslcd.conf.original
+    sudo install --owner=root --group=nslcd --mode=640 ./conf/etc/nslcd.conf /etc/nslcd.conf
+
+    sudo cp /etc/nsswitch.conf /etc/nsswitch.conf.original
+    $INSTALL ./conf/etc/nsswitch.conf /etc/nsswitch.conf
 
     # Configurar LigthDM para ingreso vía LDAP
     sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
@@ -234,7 +243,7 @@ config)
     updates
     hostname
     #nfs
-    #ldap
+    ldap
     #clean
 ;;
 
