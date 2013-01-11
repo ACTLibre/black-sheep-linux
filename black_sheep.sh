@@ -75,6 +75,9 @@ function repos {
     # Gimp
     sudo add-apt-repository --yes ppa:otto-kesselgulasch/gimp
 
+    # QTile
+    sudo add-apt-repository --yes ppa:tycho-s/ppa
+
     sudo apt-get update
 }
 
