@@ -311,10 +311,10 @@ ghc-doc,                    Documentacion de GHC
 ########################
 # OCaml                #
 ########################
-ocaml,
-ocaml-doc,
-ocaml-book-en,
-ocaml-batteries-included,
+ocaml,                      Implementación de ML orientada a objetos
+ocaml-doc,                  Documentación de OCaml
+ocaml-book-en,              Libro de OCaml
+ocaml-batteries-included,   Plataforma de desarrollo de OCaml
 
 
 ########################
@@ -328,8 +328,23 @@ racket-doc,                 Documentación de Racket
 # Smalltalk            #
 ########################
 squeak-image3.9,            Imagen de Squeak Smalltalk
-#squeak-sources3.9,          Codigo fuente de la imagen de Squeak
-#squeak-vm,                  Maquina virtual de Squeak Smalltalk
+squeak-sources3.9,          Codigo fuente de la imagen de Squeak
+squeak-vm,                  Maquina virtual de Squeak Smalltalk
+
+
+########################
+# Ruby                 #
+########################
+ruby1.9.1-full,             Entorno completo de Ruby
+libtcltk-ruby1.9.1,         Bindings de TCL/TK para Ruby
+ri1.9.1,                    Línea de comandos para documentación de Ruby
+
+
+########################
+# Perl                 #
+########################
+perl,                       "Unix's Swiss Army Chainsaw"
+perl-debug,                 Depurador para Perl
 
 
 ########################
