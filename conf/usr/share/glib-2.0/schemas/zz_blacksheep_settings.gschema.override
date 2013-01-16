@@ -45,5 +45,5 @@ display-line-numbers=true
 display-right-margin=true
 highlight-current-line=true
 insert-spaces=true
-scheme=oblivion
+scheme='oblivion'
 tabs-size=4

@@ -15,7 +15,8 @@ if [ -z "$NAME" ]; then
     exit 1
 fi
 
+HNAME=`cat /etc/hostname`
 echo "$NAME" > /etc/hostname
-sed -i "s/pleasechangeme/$NAME/g" /etc/hosts
+sed -i "s/$HNAME/$NAME/g" /etc/hosts
 
 echo "[DONE]"

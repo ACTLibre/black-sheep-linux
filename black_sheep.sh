@@ -75,9 +75,6 @@ function repos {
     # Gimp
     sudo add-apt-repository --yes ppa:otto-kesselgulasch/gimp
 
-    # QTile
-    sudo add-apt-repository --yes ppa:tycho-s/ppa
-
     sudo apt-get update
 }
 
@@ -183,7 +180,14 @@ function hostname {
 
 function nfs {
 
-    echo "TODO: Implement nfs()"
+    sudo apt-get install nfs-common
+
+    if [ -z "`cat /etc/fstab | grep nilo`" ]; then
+        echo "Adding fstab line..."
+        sudo sh -c 'echo "nilo.ic-itcr.ac.cr:/storage/home    /home           nfs     defaults,_netdev,auto 0 0" >> /etc/fstab'
+    else
+        echo "Ignoring insertion of fstab line."
+    fi
 }
 
 function ldap {
@@ -205,13 +209,35 @@ function ldap {
     $INSTALL ./conf/etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf
 }
 
+function users {
+
+    # Crea home para usuarios locales
+    sudo mkdir -p /local/home/
+
+    # Crear usuarios locales/invitado
+    if [ -z  "`cat /etc/passwd | grep curso`" ]; then
+        echo "Adding users..."
+        sudo useradd --create-home --home /local/home/curso/ --skel /etc/skel/ --shell /bin/bash --password $(perl -e 'print crypt("curso", "blacksheep")') curso
+    else
+        echo "Ignoring the addition of local users"
+    fi
+
+    # Mover el home del administrador a la carpeta de homes locales
+    # Ejecutar los siguientes comandos como root:
+    #sudo mkdir -p /local/home/administrator
+    #sudo cp /etc/skel/* /local/home/administrator
+    #sudo cp /etc/skel/.* /local/home/administrator
+    #sudo chown -R administrator:administrator /local/home/administrator
+    #sudo usermod -d /local/home/administrator administrator
+}
+
 function clean {
 
     # Elimina el cache de paquetes
-    sudo rm /var/cache/apt/archives/*
+    sudo apt-get clean
 
     # Elimina el archivo de MAC Address
-    sudo rm /etc/udev/rules.d/70-persistent-net.rules
+    sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 }
 
 function help {
@@ -244,9 +270,10 @@ install)
 config)
     # Configura la estación
     updates
-    hostname
-    #nfs
+    nfs
     ldap
+    users
+    hostname
     #clean
 ;;
 
