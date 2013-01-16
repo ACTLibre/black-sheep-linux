@@ -164,12 +164,6 @@ function updates {
 
 function hostname {
 
-    # Cambia el hostname
-    $INSTALL ./conf/etc/hostname /etc/hostname
-
-    # Cambia el archivo de hosts
-    $INSTALL ./conf/etc/hosts /etc/hosts
-
     # Instala el script de cambio de nombre de estacion
     $INSTALL ./conf/sbin/changehostname /sbin/changehostname
     sudo chmod 755 /sbin/changehostname
