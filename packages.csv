@@ -388,7 +388,7 @@ wget,                       Gestor de descargas para terminal
 curl,                       Intercambio de datos entre servidores
 libpcap-dev,                Biblioteca para la captura de paquetes
 python-scapy,               Herramienta de manipulación, generación y análisis de paquetes
-
+geoip-bin,		    Base de datos geografica de direcciones IP
 
 ########################
 # Bases de datos       #
@@ -461,8 +461,8 @@ gresistor,                  Calculadora de resistencias eléctricas
 ########################
 # Juegos               #
 ########################
-warzone2100,                Juego de estrategia
-warzone2100-music,          Música de Warzone
+# warzone2100,                Juego de estrategia
+# warzone2100-music,          Música de Warzone
 armagetronad,               Motocicletas de luz tipo Tron
 frozen-bubble,              Juego tipo tetris
 warmux,                     Juego de guerra tipo Worms
