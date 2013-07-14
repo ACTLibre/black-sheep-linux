@@ -62,7 +62,7 @@ rapidsvn,                   Cliente gráfico de subversion
 bzr,                        Sistema de control utilizado Canonical/Launchpad
 mercurial,                  Otro sistema de control de versiones
 cvs,                        Antiguo sistema de control de versiones todavía en uso
-
+gource,                     Visualisación de control de versiones con git
 
 ########################
 # Web                  #
