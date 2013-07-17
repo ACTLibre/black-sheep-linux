@@ -26,8 +26,8 @@ gaphor,                     Diagramas UML
 ########################
 pidgin,                     Cliente de comunicación multiprotocolo
 pidgin-otr,                 Plugin para comunicación cifrada
-skype,                      Cliente VoIP
-google-talkplugin,          Plugin para Google Talk
+#skype,                      Cliente VoIP
+#google-talkplugin,          Plugin para Google Talk
 
 
 ########################
@@ -63,6 +63,7 @@ bzr,                        Sistema de control utilizado Canonical/Launchpad
 mercurial,                  Otro sistema de control de versiones
 cvs,                        Antiguo sistema de control de versiones todavía en uso
 gource,                     Visualisación de control de versiones con git
+
 
 ########################
 # Web                  #
@@ -134,7 +135,7 @@ alacarte,                   Editor del menú de usuario
 transmission,               Cliente P2P
 phatch,                     Editor y procesador gráfico de imágenes en lote
 imagemagick,                Herramienta para crear y editar imágenes
-libmagickcore4-extra,       Soporte para imagemagick de formatos adicional
+#libmagickcore4-extra,       Soporte para imagemagick de formatos adicional
 gparted,                    Herramienta de gestión de particiones
 keepassx,                   Gestor de claves seguras
 
@@ -161,8 +162,9 @@ python,                     Lenguaje de programación Python
 python-cairo,               Bindings de Cairo
 python-gtk2,                Bindings de Gtk2
 python-gtk2-doc,            Documentación de los bindings de Gtk2
-python-qt3,                 Bindings de QT3
+#python-qt3,                 Bindings de QT3
 python-qt4,                 Bindings de QT4
+python-qt4-doc,             Documentación de los bindings de QT4
 python-enchant,             Bindings de Enchant
 python-numpy,               Biblioteca numérica
 python-lxml,                Biblioteca para manipulación de XML
@@ -281,18 +283,18 @@ monodevelop,                Entorno de desarrollo para C#/Mono
 monodevelop-nunit,          Framework de pruebas automatizadas similar a JUnit
 monodevelop-versioncontrol, Soporte para Subversion
 monodevelop-database,       Soporte para bases de datos (MySQL, PostgreSQL, SQLite, MS SQL Server)
-monodevelop-vala,           Soporte para Vala (lenguaje inspirado en C#)
+#monodevelop-vala,           Soporte para Vala (lenguaje inspirado en C#)
 
 
 ########################
 # Erlang               #
 ########################
 # Versiones antiguas de Erlang disponibles en repos oficiales
-#erlang,                     Lenguaje de programación distribuído
-#erlang-doc,                 Documentación de Erlang
-#erlang-manpages,            Manuales de comandos de Erlang
+erlang,                     Lenguaje de programación distribuído
+erlang-doc,                 Documentación de Erlang
+erlang-manpages,            Manuales de comandos de Erlang
 # Versión actualizada desde repo oficial
-esl-erlang,                 Lenguaje de programación distribuído
+#esl-erlang,                 Lenguaje de programación distribuído
 
 
 ########################
@@ -357,6 +359,7 @@ texlive-latex-extra,        Paquetes extras
 texlive-publishers,         Formatos para publicaciones
 rubber,                     Entorno de compilación
 gummi,                      IDE para LaTeX
+texmaker,                   IDE para LaTeX
 
 
 ########################
@@ -382,13 +385,14 @@ gns3,                       Simulador de redes CISCO
 virtualbox,                 Virtualización de máquinas i386
 virtualbox-dkms,            Módulos dinámicos del kernel para virtualización
 virtualbox-guest-additions-iso, Imagen de disco de guest additions para VirtualBox
-virtualbox-fuse,            Módulo para FUSE que permite montar imágenes VDI de VirtualBox
+#virtualbox-fuse,            Módulo para FUSE que permite montar imágenes VDI de VirtualBox
 minicom,                    Cliente de terminal "similar a HyperTerminal"
 wget,                       Gestor de descargas para terminal
 curl,                       Intercambio de datos entre servidores
 libpcap-dev,                Biblioteca para la captura de paquetes
 python-scapy,               Herramienta de manipulación, generación y análisis de paquetes
-geoip-bin,		    Base de datos geografica de direcciones IP
+ipcalc,                     Parameter calculator for IPv4 addresses
+
 
 ########################
 # Bases de datos       #
@@ -461,8 +465,8 @@ gresistor,                  Calculadora de resistencias eléctricas
 ########################
 # Juegos               #
 ########################
-# warzone2100,                Juego de estrategia
-# warzone2100-music,          Música de Warzone
+warzone2100,                Juego de estrategia
+warzone2100-music,          Música de Warzone
 armagetronad,               Motocicletas de luz tipo Tron
 frozen-bubble,              Juego tipo tetris
 warmux,                     Juego de guerra tipo Worms
@@ -479,9 +483,11 @@ sl,                         Correct you if you type `sl' by mistake
 # Entornos de escrit.  #
 ########################
 gnome-shell,                Gnome Shell
-cinnamon,                   Cinnamon
+#cinnamon,                   Cinnamon
 kde-full,                   KDE
 xfce4,                      XFCE
 lxde,                       LXDE
-e17,                        Enlightenment
-awesome,                    Gestor de ventanas para X
+#e17,                        Enlightenment
+#awesome,                    Gestor de ventanas para X
+
+
