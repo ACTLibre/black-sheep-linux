@@ -427,6 +427,7 @@ relational-cli,             Herramienta educativa de línea de comandos para la 
 # Sistemas operativos  #
 ########################
 linux-source,               Código fuente del kernel Linux
+autofs,                     Monta automáticamente los sistemas de archivos
 #linux-headers-`uname -r`,  Headers del kernel Linux
 
 
